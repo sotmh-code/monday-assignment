@@ -91,7 +91,7 @@ def test_manual_review_and_failure_are_visible():
     rec["triage_risk_level"] = "NEEDS_REVIEW"
     rec["warnings"] = ["Failed output validation"]
     text = render_html(_output([rec]))
-    assert "Summary unavailable" in text
+    assert "summary unavailable" in text
     assert "Failed output validation" in text
     assert "Compliance decision: pending" in text
     assert "No network calls" in text
