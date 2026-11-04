@@ -1,107 +1,117 @@
-# Crestview AI Client Intake — Live Demo Script (10–12 minutes)
+# Crestview AI Client Intake — monday.com Demo Script (10–12 minutes)
 
-> **Audience:** Crestview COO, Client Operations, Compliance and Technology leaders, with the monday.com FDE interview panel. This is a **customer experience first** demonstration, followed by the architecture behind it.
->
-> **Important:** All applications are fictional. Recorded results are real outputs of a prior model run, but replaying them is **not a live API call**. Risk ratings are advisory; no sanctions, PEP, KYC or identity screening has been performed. Human Compliance makes every final decision.
+**Primary demo:** [Crestview Client Onboarding POC — monday.com board 5032266463](https://andrelimyoukwans-team.monday.com/boards/5032266463).
 
-## Before the interview: preparation, not presentation
+**What has been demonstrated:** `output/monday_sync_report.json` records **15/15 items created, no errors**, on board `5032266463` from AI run `048b9e150ceb`. That is a historical sync result. Confirm the board's *current* contents just before the interview.
 
-Run in your local repository:
+**Scope:** All case data is fictional. Claude provides **advisory intake risk triage**, not sanctions, identity, PEP or KYC screening. Compliance approves clients; the AI never does.
 
-\`\`\`bash
-source .venv/bin/activate
+## Preflight — before the panel arrives
+
+1. Open the monday.com board. Confirm **15 application items**, including `APP-2026-0301`, `APP-2026-0303` and `APP-2026-0310`.
+2. Check these actual board columns: **Application ID**, **AI Risk Triage (advisory)**, **Review Priority**, **Routing**, **Onboarding Complexity**, **Compliance Decision**, **Pipeline Status**, **Risk Rationale & Evidence**, **Gaps / Blockers**, **AI Onboarding Summary**, **Next Actions**, **AI Provenance**.
+3. Rehearse opening the long-text fields for Apex. Adjust column widths or your board view so the panel can read the text. Show the board, not the terminal.
+4. Check that Compliance Decision displays **Pending Human Review**. This field is initialized on item creation and excluded from subsequent pipeline updates; the POC does **not** implement authorization or complete an approval workflow.
+5. Have a code/evaluation tab ready only for Q&A. No need to run `--setup-board` again—it creates a different board.
+
+Optional local validation (credentials required for the second command):
+
+```bash
+git switch feature/customer-review-demo
 python -m pytest -q
+python -m src.monday_sync --check
+```
+
+If the live board is inaccessible, use the read-only offline fallback (recorded results, **not live model calls**):
+
+```bash
 python -m src.report --input output/enriched_applications.json
-\`\`\`
-
-Open \`output/crestview_review_dashboard.html\` in a browser (double-click or \`open output/crestview_review_dashboard.html\` on macOS). Keep the PDF presentation ready to transition into the demo.
-
-Open browser tabs for:
-- **Client Intake Review** — the generated dashboard, your primary demo surface.
-- Optional: your actual monday.com sandbox board, **only if a real sync has already been configured and verified**.
-- Optional technical Q&A: \`src/pipeline.py\`, \`src/guardrails.py\`, \`src/risk_assessment.py\`, \`src/onboarding_summary.py\`, \`output/evaluation_report_sample.md\`.
-
-**Do not** open the terminal, raw JSON, code, or SHA-256 fields as part of the initial customer walkthrough. The separate Stage 1 and Stage 2 files are available under \`output/risk_assessments.json\` and \`output/onboarding_summaries.json\` for reviewers who ask; the dashboard also links to them. The canonical original is \`output/enriched_applications.json\`.
-
-Use \`python -m src.main --ids APP-2026-0301 APP-2026-0303 APP-2026-0310\` **only if the panel asks to see actual live API execution and the key/network are working**. This writes \`*_subset\` files, not the full results. Regenerate the report with \`--input output/enriched_applications_subset.json --output output/subset_review.html\` if you wish to show those new results. Say clearly when a displayed report is recorded rather than freshly generated.
-
-## 0:00–1:15 | The problem and customer-facing experience
-
-**Show:** Browser dashboard, top-level metrics and client list.
-
-**Say:** “This is the operational experience we want Client Ops and Compliance to have, rather than a set of AI logs. Fifteen synthetic applications have already been processed. A reviewer can find a client, see what AI identified, understand what information is missing and track the handoff. None of these records has been cleared by AI.”
-
-**Point out:** Completed results vs. cases needing review, pending human decisions, searchable and filterable client list. These counts reflect the recorded run, not live organizational KPIs.
-
-## 1:15–3:45 | Compare three applicants: risk is not complexity
-
-**Show:** Use the client list/search for:
-
-1. **Greenfield State Pension Fund (APP-2026-0301):** Standard onboarding example. Say: “Transparent, familiar documentation still needs standard human KYC.”
-2. **Apex Global Holdings Ltd (APP-2026-0303):** HIGH advisory risk. Say: “Opaque beneficial ownership and gaps in source-of-funds evidence warrant human escalation. The risk indicator shows the source sentence, so the analyst can investigate.”
-3. **Heritage Family Office (APP-2026-0310):** LOW advisory risk but HIGH operational complexity. Say: “Multiple accounts and advisors may create operational work without automatically implying AML concerns. Separating those concepts prevents false escalation.”
-
-**Do not say:** The model performed KYC, verified documents, or independently confirmed the client's claims. It only interprets the fictional intake descriptions.
-
-## 3:45–5:45 | Stage 1 informs Stage 2
-
-**Show:** Apex case in browser. Scroll from **Stage 1: Risk triage and source evidence** to **Stage 2: Risk-informed onboarding summary**.
-
-**Say:** “Stage 1 produces a structured, evidence-backed advisory risk assessment. Stage 2 receives that assessment, together with the application, and creates an operations summary. It translates risk into specific actions, owners and blockers. Notice that account opening or funding stays blocked pending the appropriate human review.”
-
-**Why this matters:** In \`src/pipeline.py\`, \`assess_risk\` runs before \`summarize(app, risk, llm)\`. The validated Stage 1 \`RiskAssessment\` object is serialized into the Stage 2 prompt under the **\`<risk_triage>\` delimiter**. That delimiter is a prompt section, **not a filename or separate agent**. The two individual JSON reports are **exports of the final persisted records**, not the actual transient prompt text.
-
-**Do not demonstrate:** Comparing SHA-256 values on screen. That is an internal lineage check, covered by a unit test, useful only if the technical panel asks.
-
-## 5:45–8:15 | Trust, guardrails and failure cases
-
-**Show:** Apex case's **Guardrails and review boundaries** panel. Then discuss the adversarial dataset (see note).
-
-**Say:** “The model isn't its own validator. We use strict structured output, verify source quotations exist, reject claims that screening was completed or a client approved, and route inconsistent or failed results to manual review. These checks address fabricated evidence, unauthorized compliance claims, prompt injection and silent failure. Importantly, a quoted sentence existing in the application does not prove the AI's interpretation is correct—that's the analyst's job.”
-
-**Explain the guardrails as a sequence:**
-- **Before the model:** input validation; application text is treated as untrusted data; forged prompt delimiters neutralized.
-- **At the model boundary:** provider-enforced structured JSON schema; local Pydantic validation; bounded retries and explicit failures.
-- **After Stage 1:** evidence quote matching, prohibited-claim scanning, consistency warnings, conservative routing.
-- **After Stage 2:** acknowledged risk-level consistency and prohibited-claim scanning.
-- **At the system boundary:** every application requires human review; the monday.com integration only initializes the Compliance Decision column on creation as **Pending Human Review** and does not overwrite reviewer decisions on updates.
-
-**Adversarial evidence:** A pre-recorded run exists in \`output/adversarial/enriched_applications.json\`, including injected instructions and sparse/invalid inputs. To show it elegantly, generate a **separate dashboard** before the interview:
-\`\`\`bash
 python -m src.report --input output/adversarial/enriched_applications.json
-\`\`\`
-Then open \`output/adversarial/crestview_review_dashboard.html\` and select **Northgate Consulting LLC (APP-2026-0901)** for the injected-instruction case or **Blank Description Holdings (APP-2026-0903)** for a rejected invalid-input case. These results are pre-recorded; do not imply you just attacked the live model.
+```
 
-**On frameworks:** “I kept validation and policy checks explicit and testable in this small two-step workflow, rather than adopting an entire agent-orchestration stack. In production I'd evaluate Guardrails AI or NeMo Guardrails for controls they demonstrably improve, but no framework replaces Crestview-owned KYC policies, evidence checks or human authorization.” Do not imply a guardrail framework is already used.
+Open `output/crestview_review_dashboard.html`. For adversarial tests, open `output/adversarial/crestview_review_dashboard.html`. The reports are not a second operational integration.
 
-## 8:15–9:45 | monday.com as the real operational home
+---
 
-**Show:** If available and previously verified, the live monday.com sandbox board. Otherwise continue to show the dashboard, and describe the **tested but not necessarily deployed** GraphQL adapter.
+## 0:00–1:15 — Show the real workflow
 
-**Say:** “The report is our standalone review surface for the interview. In production, monday.com would be the system of work: each application becomes a tracked item with an owner, status, escalation queue and human Compliance Decision. Salesforce and ClientHub remain systems of record; screening stays in ComplianceOne. The existing GraphQL adapter supports an idempotent upsert keyed by application ID and deliberately leaves human compliance decisions alone on repeat runs.”
+**Show:** monday.com board with 15 applications and the risk, complexity, routing, status and compliance columns.
 
-The repository includes \`output/monday_payloads.json\` from dry-run mapping. **Dry-run does not mean a monday.com board has been populated.** Never claim live sync without verifying it.
+**Say:** “Here's the result of using AI to accelerate intake without creating another inbox. The pipeline processed 15 synthetic applications, then synchronized findings to the team's monday.com board. Operations can identify the next actions, Compliance can see escalation candidates, and nobody has been cleared by AI.”
 
-## 9:45–11:15 | Technical credibility and evaluation
+**Avoid:** Claiming the POC includes working Salesforce, ClientHub, SharePoint, Outlook or ComplianceOne connections; these belong to the proposed six-month rollout. Likewise, suggested owners are text in `Next Actions`, not proof of actual monday.com assignee automation.
 
-**Show only if needed:** a pre-opened evaluation report or a short architecture diagram, not a running terminal.
+## 1:15–3:30 — Compare three cases: risk is not complexity
 
-**Say:** “This is a narrow, maintainable pipeline: Anthropic structured output, Pydantic contracts, deterministic checks and a separate monday adapter. It retries bounded transient failures, leaves invalid inputs visible, and never defaults an error to LOW risk. The sample runs and adversarial tests are documented; I can show test or code evidence if you'd like.”
+Use board search for:
 
-The existing README reports 15/15 successful records in run \`048b9e150ceb\`, 61/61 matched evidence quotations and 30/30 evaluation checks. **Recheck test count with \`python -m pytest -q\` before quoting the current number.** Those are development metrics, not production accuracy or compliance outcomes.
+- **Greenfield State Pension Fund — `APP-2026-0301`:** **Low** advisory risk / **Standard** priority / **Medium** complexity / **Standard KYC Queue**. Normal human KYC still applies.
+- **Apex Global Holdings Ltd — `APP-2026-0303`:** **High** / **Escalate** / **Medium** complexity / **Compliance Escalation**. Open **Risk Rationale & Evidence** and **Gaps / Blockers**. Point to the layered structure, apparent nominee directors, unsupported source-of-funds details and resistance to information requests *as claims from the supplied intake description*, not independent findings.
+- **Heritage Family Office — `APP-2026-0310`:** **Low** advisory risk, **High** operational complexity. More accounts/entities and coordination do not by themselves imply financial-crime risk.
 
-## 11:15–12:00 | Transition
+**Say:** “Separating compliance indicators from operational complexity matters because escalating every complicated relationship would recreate today's Compliance backlog.”
 
-**Say:** “The value is not an AI-generated risk score on its own. It's an auditable, evidence-linked recommendation, followed by a useful next action, in a workflow where a person remains accountable. What we prove next in the pilot is whether that actually reduces manual touch time and onboarding cycle time without compromising risk controls.”
+The labels above match the saved `output/monday_payloads.json`. If your live board differs, identify the current values instead.
 
-## Technical Q&A quick reference
+## 3:30–5:40 — Show Stage 1 informing Stage 2
 
-| Question | Answer / source |
-|---|---|
-| Where are Stage 1 and 2 outputs? | \`output/risk_assessments.json\` and \`output/onboarding_summaries.json\` generated by \`python -m src.report\`; the original combined result remains \`output/enriched_applications.json\`. |
-| What is \`<risk_triage>\`? | A delimiter in Stage 2's LLM prompt around the validated Stage 1 JSON, not a file or runtime framework. |
-| What does the SHA-256 prove? | It records the serialized validated triage passed to Stage 2; the integrity/lineage test verifies it. Not a customer workflow. |
-| Why not NeMo/Guardrails AI? | The POC has two sequential LLM stages, and its highest-value controls are firm-specific and deterministic. Framework adoption should follow a documented gap and evaluation. |
-| Does the dashboard approve or edit? | No. It's read-only; human review is conceptual here. monday.com is the proposed operational review/approval surface. |
-| Can I see new model output now? | If credentials/network permit, run \`python -m src.main --ids ...\` and regenerate a separate report from the subset JSON. Clearly label the run as live. |
-| What are its limits? | Short fictional descriptions only; no document OCR, real screenings, live client workflows, production access policies or independently validated accuracy. |
+Stay on **Apex**.
+
+**Stage 1 — AI triage:** Show **AI Risk Triage (advisory)**, **Review Priority**, **Risk Rationale & Evidence**, **Gaps / Blockers**, **Routing**.
+
+**Stage 2 — Operations follow-through:** Show **AI Onboarding Summary**, **Next Actions**, **Onboarding Complexity**, alongside **Compliance Decision**.
+
+**Say:** “The first model stage extracts risk observations and supporting quotes. The second receives that validated assessment and uses it to write a practical operations brief, with named suggested owners and tasks that block account opening. For Apex, non-binding file preparation can proceed, but funding and account activation await a human Compliance decision.”
+
+**Technical clarification:** `src/pipeline.py` runs `assess_risk(app, llm)` before `summarize(app, risk, llm)`. Inside the second prompt, the serialized Stage 1 JSON appears between **`<risk_triage>` tags**. That's a prompt delimiter, not a file. The canonical stored results are the `risk_assessment` and `onboarding_summary` objects in `output/enriched_applications.json`. Optional separate JSON exports are generated by `python -m src.report`.
+
+**Do not show SHA-256 comparisons.** They belong to test/audit lineage, not the customer workflow.
+
+## 5:40–7:50 — Demonstrate guardrails and human ownership
+
+**Show:** Source quotes in Apex's **Risk Rationale & Evidence**, its **Pending Human Review** decision, and the **Pipeline Status** / **Routing** columns.
+
+**Say:** “We don't rely on the model to mark its own homework. There are checks before, at, and after each model call. If input is invalid, evidence is unverified or an output claims a client has been cleared, we expose that issue and route it to human review rather than silently treating the case as low risk.”
+
+| Failure to prevent | Implemented check | Honest limitation |
+|---|---|---|
+| Malformed output | Provider JSON schema + local Pydantic validation, bounded repair | A valid structure can still contain incorrect claims |
+| Invented quotations | Verbatim source-quote matching | Quote presence doesn't prove the interpretation |
+| False claim of screening or approval | Deterministic prohibited-claim scanner | Lexical scanner can miss or overflag phrasing |
+| Prompt injection | Untrusted input delimiting, neutralized forged tags, adversarial tests | No universal guarantee against every injection |
+| Inconsistent risk / priority | Warnings and conservative deterministic routing | Risk taxonomy still needs Compliance sign-off |
+| API failure misread as Low | Explicit NEEDS_REVIEW / MANUAL_TRIAGE states | Manual follow-up is required |
+| Overwriting human decision | `Compliance Decision` set only on item creation | Role-based approval permissions aren't implemented |
+
+**Framework question:** “This is a small two-stage pipeline, not an autonomous multi-agent system. We chose targeted business-rule checks, Anthropic structured output and Pydantic rather than introducing Guardrails AI or NeMo Guardrails without a specific proven gap. In production we'd evaluate frameworks against policy-owned tests and threat scenarios.”
+
+**Optional red-team example:** Present the recorded offline adversarial case `APP-2026-0901` (injected instruction) or `APP-2026-0903` (blank invalid description). Do **not** sync adversarial cases into the client demo board.
+
+## 7:50–9:10 — Why monday.com, not another AI dashboard?
+
+**Show:** The board's **Routing**, **Gaps / Blockers**, **Next Actions** and **Compliance Decision** columns.
+
+**Say:** “monday.com is the work surface. Our GraphQL adapter maps structured findings into board columns and upserts by Application ID, avoiding duplicates on reruns. Crucially, it does not overwrite a previously recorded human Compliance Decision. Production rollout adds approved system integrations, ownership automation, SLAs and monitoring.”
+
+**Be precise:** The source repository documents live board item creation. It does not prove live enterprise data connectors, fully automated status transitions or access-controlled reviewer approvals.
+
+## 9:10–10:45 — Technical validation (brief, or on request)
+
+**Say:** “This is a maintainable Python system: two Claude calls per valid case, strongly typed results, evidence checks, explicit failure states and isolated monday.com GraphQL writes. The recorded full run reports **15/15 completed**, **61/61 source quotations matched** and **30/30 internal evaluation checks**. These are small synthetic development metrics, not production risk-prediction accuracy.”
+
+Show code only if the panel wants it: `src/pipeline.py`, `src/guardrails.py`, `src/monday_client.py`, `output/evaluation_report_sample.md`. Run `pytest` before the session; the previously reported 86 tests predate this feature branch.
+
+## 10:45–12:00 — Close and transition to the roadmap
+
+**Say:** “The product outcome isn't an AI risk score—it is an evidence-linked recommendation that immediately becomes a visible next action, with human decisions preserved. The six-month pilot should measure whether we reduce manual touches and cycle time without weakening Compliance oversight. The 23-to-5-business-day objective remains a target, not a result of these 15 synthetic cases.”
+
+---
+
+## Technical Q&A cheat sheet
+
+- **Actual monday.com write?** `output/monday_sync_report.json` records 15 successful creations on board `5032266463`. Cross-check visually with the live board.
+- **Stage 1 and Stage 2 files?** Combined canonical `output/enriched_applications.json`; optional `output/risk_assessments.json` and `output/onboarding_summaries.json` exported by `src.report`.
+- **What is `<risk_triage>`?** The Stage 2 prompt section enclosing Stage 1 JSON. Not a file, agent or folder.
+- **What is the SHA-256 for?** Internal audit lineage of Stage 1's serialized input to Stage 2. Not customer-facing.
+- **What does the monday.com adapter protect?** Idempotent Application-ID upsert; Compliance Decision is create-only. It does *not* enforce role permissions.
+- **Can we run the model live?** Only if explicitly requested: `python -m src.main --ids APP-2026-0301 APP-2026-0303 APP-2026-0310`. This writes separate `*_subset` output. Don't replace board data during an unprepared live demo.
