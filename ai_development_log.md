@@ -101,4 +101,7 @@ Five borderline cases rerun twice more at the same prompt version ([evals/stabil
 - Notes:
 
 ## monday integration status
-- **As of this log:** adapter implemented and unit-tested against a fake GraphQL board, and dry-run payloads generated (`output/monday_payloads.json`). **No live board writes have been made**, because no sandbox token had been provided when this was written. If a token is added and `python -m src.monday_sync --setup-board` then `python -m src.monday_sync` are run, record the board ID and sync report here.
+
+**Updated after the original 2026-11-03 development log; this records a subsequent user-run integration.** The user successfully ran the board setup, schema check, and live sync commands. The committed `output/monday_sync_report.json` documents **15/15 successful `created` results**, no reported errors, on **monday.com sandbox board `5032266463`**, sourced from AI run `048b9e150ceb`. Individual item IDs are preserved in that report. The dry-run payload mapping remains in `output/monday_payloads.json`.
+
+The saved sync report establishes that the GraphQL adapter reported real creations at that point in time; it does **not** independently establish the board's current contents, permissions, or whether subsequent human edits have occurred. Verify the board manually before the interview. Follow [the monday.com-first customer demo script](docs/demo_script.md), using the offline report (`python -m src.report`) only as a backup. No claim is made that Salesforce, ClientHub, SharePoint, Outlook, or ComplianceOne are live-integrated.
