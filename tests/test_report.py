@@ -63,7 +63,7 @@ def test_render_dashboard_escapes_untrusted_application_text():
     assert "<script>alert" not in text
     assert "&lt;script&gt;alert" in text
     assert "&lt;script&gt;test&lt;/script&gt;" in text
-    assert "Stage 1 triage acknowledged" in text
+    assert "Summary acknowledges Stage 1 triage" in text
     assert "Blocks account opening" in text
     assert "Pending human review" not in text or "Human Compliance" in text
 
