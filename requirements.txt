@@ -1,0 +1,10 @@
+# Runtime
+anthropic>=2.4,<3
+pydantic>=2.7,<3
+python-dotenv>=1.0,<2
+
+# Tests
+pytest>=8,<10
+
+# Presentation build only (not needed to run the pipeline)
+python-pptx>=1.0,<2

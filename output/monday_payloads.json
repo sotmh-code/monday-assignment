@@ -1,0 +1,1267 @@
+{
+  "dry_run": true,
+  "board_columns": [
+    [
+      "app_id",
+      "Application ID",
+      "text"
+    ],
+    [
+      "client_type",
+      "Client Type",
+      "text"
+    ],
+    [
+      "aum_usd",
+      "Est. AUM (USD)",
+      "numbers"
+    ],
+    [
+      "submitted",
+      "Submitted",
+      "date"
+    ],
+    [
+      "ai_risk",
+      "AI Risk Triage (advisory)",
+      "status"
+    ],
+    [
+      "review_priority",
+      "Review Priority",
+      "status"
+    ],
+    [
+      "routing",
+      "Routing",
+      "status"
+    ],
+    [
+      "complexity",
+      "Onboarding Complexity",
+      "status"
+    ],
+    [
+      "compliance",
+      "Compliance Decision",
+      "status"
+    ],
+    [
+      "pipeline_status",
+      "Pipeline Status",
+      "status"
+    ],
+    [
+      "gaps",
+      "Gaps / Blockers",
+      "long_text"
+    ],
+    [
+      "next_actions",
+      "Next Actions",
+      "long_text"
+    ],
+    [
+      "summary",
+      "AI Onboarding Summary",
+      "long_text"
+    ],
+    [
+      "risk_evidence",
+      "Risk Rationale & Evidence",
+      "long_text"
+    ],
+    [
+      "provenance",
+      "AI Provenance",
+      "text"
+    ]
+  ],
+  "items": [
+    {
+      "application_id": "APP-2026-0301",
+      "item_name": "Greenfield State Pension Fund",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0301",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "750000000",
+        "submitted": {
+          "date": "2026-01-06"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Greenfield State Pension Fund is a state pension fund seeking to allocate about $750M to domestic equity and investment-grade fixed income management, and it already has a sub-advisory relationship with our fixed income team. Onboarding complexity is medium because of the size, two strategies, and public-entity governance documents. The compliance triage is LOW risk with standard priority, but Compliance must still complete standard KYC and screening before any account is opened or funded. The next step is for Compliance to start screening and document review while the relationship manager requests the missing signatory ID, source of funds and PEP information."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, watchlist and adverse-media screening in ComplianceOne for the fund, its authorized signatories and board members (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Review the board resolution, investment policy statement and signatory list for completeness and authenticity, and confirm the fund's legal status, governing authority and control persons (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request missing items from the client: signatory ID verification, source of funds description, and PEP details for board members or trustees (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Pull the prior sub-advisory KYC file and check whether existing records are current enough to reuse, pending Compliance's decision\n- [PORTFOLIO_MANAGEMENT] Review the investment policy statement for guidelines and restrictions and plan mandate setup across the equity and fixed income strategies, without any binding steps\n- [LEGAL] Review the investment management agreement and any signing authority terms for the pension fund"
+        },
+        "risk_evidence": {
+          "text": "The record describes a state pension fund, an institutional client with a clear mandate, a standard timeline, and a reported complete documentation package. No positive compliance indicators such as opaque ownership, unsupported source of funds, intermediaries, or resistance to due diligence are stated. Documentation is the application's claim and has not been verified; routine KYC and screening still apply.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Beneficial ownership/control confirmation and governing statute or authority documentation for the fund [not stated in application]\n- Identity and verification documents for authorized signatories (only a signatory list is reported) [not stated in application]\n- Source of funds description for the $750M allocation [not stated in application]\n- Details of any PEP status of board members or trustees, which is routine for a public entity [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:02+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0301",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "750000000",
+        "submitted": {
+          "date": "2026-01-06"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Greenfield State Pension Fund is a state pension fund seeking to allocate about $750M to domestic equity and investment-grade fixed income management, and it already has a sub-advisory relationship with our fixed income team. Onboarding complexity is medium because of the size, two strategies, and public-entity governance documents. The compliance triage is LOW risk with standard priority, but Compliance must still complete standard KYC and screening before any account is opened or funded. The next step is for Compliance to start screening and document review while the relationship manager requests the missing signatory ID, source of funds and PEP information."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, watchlist and adverse-media screening in ComplianceOne for the fund, its authorized signatories and board members (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Review the board resolution, investment policy statement and signatory list for completeness and authenticity, and confirm the fund's legal status, governing authority and control persons (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request missing items from the client: signatory ID verification, source of funds description, and PEP details for board members or trustees (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Pull the prior sub-advisory KYC file and check whether existing records are current enough to reuse, pending Compliance's decision\n- [PORTFOLIO_MANAGEMENT] Review the investment policy statement for guidelines and restrictions and plan mandate setup across the equity and fixed income strategies, without any binding steps\n- [LEGAL] Review the investment management agreement and any signing authority terms for the pension fund"
+        },
+        "risk_evidence": {
+          "text": "The record describes a state pension fund, an institutional client with a clear mandate, a standard timeline, and a reported complete documentation package. No positive compliance indicators such as opaque ownership, unsupported source of funds, intermediaries, or resistance to due diligence are stated. Documentation is the application's claim and has not been verified; routine KYC and screening still apply.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Beneficial ownership/control confirmation and governing statute or authority documentation for the fund [not stated in application]\n- Identity and verification documents for authorized signatories (only a signatory list is reported) [not stated in application]\n- Source of funds description for the $750M allocation [not stated in application]\n- Details of any PEP status of board members or trustees, which is routine for a public entity [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:02+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0302",
+      "item_name": "Margaret and Theodore Ashworth",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0302",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "28000000",
+        "submitted": {
+          "date": "2026-01-07"
+        },
+        "complexity": {
+          "label": "Low"
+        },
+        "summary": {
+          "text": "Margaret and Theodore Ashworth are a retired Connecticut-based couple referred by an existing client, seeking discretionary, income-focused wealth management on about $28M. Onboarding complexity is low: one service, two individual holders, and no special requirements stated. The compliance triage is LOW risk with standard review priority, yet standard KYC by Compliance is still required and no checks or documents have been verified. Account opening and funding wait for that review, while the team gathers identity, source-of-wealth, and referral information and prepares account structuring and suitability work."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP, and adverse-media screening for both applicants and complete standard KYC review. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect and verify identity documents for both individuals, and obtain PEP/sanctions declarations. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request supporting evidence for source of wealth, including the inheritance and real estate sales, and forward to Compliance for review. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Confirm the referring client relationship and referral details, and clarify the prior executive role and employer for any insider or trading restriction considerations. (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare non-binding groundwork: discuss joint vs. separate account structure and begin the suitability and investment policy discussion for the income-focused, moderate-risk mandate."
+        },
+        "risk_evidence": {
+          "text": "The record describes a U.S.-based retired couple referred by an existing client, with a stated multi-source origin of wealth and standard documentation reported as provided. No opacity, intermediaries, jurisdictional concerns, resistance to due diligence or other positive compliance indicators are stated. Documents are the application's claim and no screening has been performed, so standard KYC applies.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Government-issued identity documents and verification for both individuals [not stated in application]\n- Supporting evidence for source of wealth (e.g., compensation records, property sale records, inheritance documentation) [not stated in application]\n- Identity and relationship details of the referring existing client [not stated in application]\n- PEP and sanctions status declarations for both applicants [not stated in application]\n- Details of the executive role and employer, including any insider or trading restrictions [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:00+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0302",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "28000000",
+        "submitted": {
+          "date": "2026-01-07"
+        },
+        "complexity": {
+          "label": "Low"
+        },
+        "summary": {
+          "text": "Margaret and Theodore Ashworth are a retired Connecticut-based couple referred by an existing client, seeking discretionary, income-focused wealth management on about $28M. Onboarding complexity is low: one service, two individual holders, and no special requirements stated. The compliance triage is LOW risk with standard review priority, yet standard KYC by Compliance is still required and no checks or documents have been verified. Account opening and funding wait for that review, while the team gathers identity, source-of-wealth, and referral information and prepares account structuring and suitability work."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP, and adverse-media screening for both applicants and complete standard KYC review. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect and verify identity documents for both individuals, and obtain PEP/sanctions declarations. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request supporting evidence for source of wealth, including the inheritance and real estate sales, and forward to Compliance for review. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Confirm the referring client relationship and referral details, and clarify the prior executive role and employer for any insider or trading restriction considerations. (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare non-binding groundwork: discuss joint vs. separate account structure and begin the suitability and investment policy discussion for the income-focused, moderate-risk mandate."
+        },
+        "risk_evidence": {
+          "text": "The record describes a U.S.-based retired couple referred by an existing client, with a stated multi-source origin of wealth and standard documentation reported as provided. No opacity, intermediaries, jurisdictional concerns, resistance to due diligence or other positive compliance indicators are stated. Documents are the application's claim and no screening has been performed, so standard KYC applies.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Government-issued identity documents and verification for both individuals [not stated in application]\n- Supporting evidence for source of wealth (e.g., compensation records, property sale records, inheritance documentation) [not stated in application]\n- Identity and relationship details of the referring existing client [not stated in application]\n- PEP and sanctions status declarations for both applicants [not stated in application]\n- Details of the executive role and employer, including any insider or trading restrictions [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:00+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0303",
+      "item_name": "Apex Global Holdings Ltd",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0303",
+        "client_type": "Corporate",
+        "ai_risk": {
+          "label": "High"
+        },
+        "review_priority": {
+          "label": "Escalate"
+        },
+        "routing": {
+          "label": "Compliance Escalation"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "500000000",
+        "submitted": {
+          "date": "2026-01-08"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Apex Global Holdings Ltd is an offshore-registered corporate client seeking multi-asset management for an estimated $500M. Operationally this is medium complexity because of the layered multi-jurisdiction structure and the expedite request. The compliance triage is HIGH with ESCALATE priority, driven by unclear beneficial ownership, apparent nominee directors, unsupported source of funds and client resistance to documentation requests. Account opening and funding wait for a human compliance decision, and the expedite request should be routed to Compliance. The next step is escalation to senior compliance while Operations and the relationship manager prepare the file without making commitments to the client."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Escalate the application to senior compliance for review before any further client engagement, including the client's expedite request and its repeated pushback on documentation requests (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Hold all account opening, funding and onboarding timeline commitments pending the human compliance decision; do not accelerate processing (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Document the client's responses and refusals to date regarding ownership and source-of-funds requests, and compile the application file for Compliance\n- [COMPLIANCE] Compliance to determine and issue any requests for a full ownership chart, UBO and controller identification, and evidenced source of funds and wealth, and to arrange sanctions, PEP and adverse-media screening on the entity, holding companies and identified principals (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review the legal structure and nominee arrangements, and advise on documentation needed for each holding entity once Compliance directs (BLOCKS ACCOUNT OPENING)"
+        },
+        "risk_evidence": {
+          "text": "The record shows a combination of serious indicators: three layers of holding companies across jurisdictions, apparent nominee directors, beneficial ownership that cannot be determined, and an unsupported source of funds. The client has also resisted repeated documentation requests and asked for expedited processing. No mitigating facts are stated. This pattern of opacity and resistance supports a HIGH advisory level with escalation.\n\nEvidence:\n- [HIGH] Layered holding structure across multiple jurisdictions: \"Ownership structure involves three layers of intermediate holding companies across multiple jurisdictions.\"\n- [HIGH] Beneficial ownership cannot be determined from submitted documents: \"Beneficial ownership is difficult to determine from submitted documentation\"\n- [HIGH] Nominee directors obscure actual principals: \"the listed directors appear to be nominee directors from a corporate services firm rather than actual principals\"\n- [MEDIUM] Offshore registration combined with multi-jurisdiction vehicles, purpose not explained: \"Corporate entity registered in an offshore jurisdiction\"\n- [HIGH] Vague, unsupported source of funds: \"Source of funds documentation references 'diversified business interests' but provides no supporting detail.\"\n- [HIGH] Client pushed back on repeated documentation requests: \"has pushed back on repeated requests for additional ownership and source-of-funds documentation\"\n- [MEDIUM] Pressure for expedited processing: \"Client is requesting expedited processing\""
+        },
+        "gaps": {
+          "text": "- Identified ultimate beneficial owners and full ownership chart with documentation for each layer [reported missing or pending]\n- Detailed, evidenced source of funds and source of wealth [reported missing or pending]\n- Identity of actual principals and controllers behind the nominee directors [reported missing or pending]\n- Specific offshore jurisdiction and the business rationale for the multi-jurisdiction structure [not stated in application]\n- Details of the corporate services firm providing nominee directors [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:03+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0303",
+        "client_type": "Corporate",
+        "ai_risk": {
+          "label": "High"
+        },
+        "review_priority": {
+          "label": "Escalate"
+        },
+        "routing": {
+          "label": "Compliance Escalation"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "500000000",
+        "submitted": {
+          "date": "2026-01-08"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Apex Global Holdings Ltd is an offshore-registered corporate client seeking multi-asset management for an estimated $500M. Operationally this is medium complexity because of the layered multi-jurisdiction structure and the expedite request. The compliance triage is HIGH with ESCALATE priority, driven by unclear beneficial ownership, apparent nominee directors, unsupported source of funds and client resistance to documentation requests. Account opening and funding wait for a human compliance decision, and the expedite request should be routed to Compliance. The next step is escalation to senior compliance while Operations and the relationship manager prepare the file without making commitments to the client."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Escalate the application to senior compliance for review before any further client engagement, including the client's expedite request and its repeated pushback on documentation requests (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Hold all account opening, funding and onboarding timeline commitments pending the human compliance decision; do not accelerate processing (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Document the client's responses and refusals to date regarding ownership and source-of-funds requests, and compile the application file for Compliance\n- [COMPLIANCE] Compliance to determine and issue any requests for a full ownership chart, UBO and controller identification, and evidenced source of funds and wealth, and to arrange sanctions, PEP and adverse-media screening on the entity, holding companies and identified principals (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review the legal structure and nominee arrangements, and advise on documentation needed for each holding entity once Compliance directs (BLOCKS ACCOUNT OPENING)"
+        },
+        "risk_evidence": {
+          "text": "The record shows a combination of serious indicators: three layers of holding companies across jurisdictions, apparent nominee directors, beneficial ownership that cannot be determined, and an unsupported source of funds. The client has also resisted repeated documentation requests and asked for expedited processing. No mitigating facts are stated. This pattern of opacity and resistance supports a HIGH advisory level with escalation.\n\nEvidence:\n- [HIGH] Layered holding structure across multiple jurisdictions: \"Ownership structure involves three layers of intermediate holding companies across multiple jurisdictions.\"\n- [HIGH] Beneficial ownership cannot be determined from submitted documents: \"Beneficial ownership is difficult to determine from submitted documentation\"\n- [HIGH] Nominee directors obscure actual principals: \"the listed directors appear to be nominee directors from a corporate services firm rather than actual principals\"\n- [MEDIUM] Offshore registration combined with multi-jurisdiction vehicles, purpose not explained: \"Corporate entity registered in an offshore jurisdiction\"\n- [HIGH] Vague, unsupported source of funds: \"Source of funds documentation references 'diversified business interests' but provides no supporting detail.\"\n- [HIGH] Client pushed back on repeated documentation requests: \"has pushed back on repeated requests for additional ownership and source-of-funds documentation\"\n- [MEDIUM] Pressure for expedited processing: \"Client is requesting expedited processing\""
+        },
+        "gaps": {
+          "text": "- Identified ultimate beneficial owners and full ownership chart with documentation for each layer [reported missing or pending]\n- Detailed, evidenced source of funds and source of wealth [reported missing or pending]\n- Identity of actual principals and controllers behind the nominee directors [reported missing or pending]\n- Specific offshore jurisdiction and the business rationale for the multi-jurisdiction structure [not stated in application]\n- Details of the corporate services firm providing nominee directors [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:03+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0304",
+      "item_name": "Pacific Northwest Teachers Retirement System",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0304",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "1200000000",
+        "submitted": {
+          "date": "2026-01-09"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Pacific Northwest Teachers Retirement System is a public pension fund seeking to allocate about $1.2B to investment-grade fixed income and real assets, with $400M initially and the rest over 6 months. Onboarding complexity is medium because of the size, phased funding and transition of assets from an incumbent manager. The compliance triage is LOW risk with standard priority, but standard KYC review is still required and the documentation claims are unverified. Account opening and funding wait for Compliance's review. In the meantime, Operations should collect the missing ownership, authority and source-of-funds information while transition planning proceeds on a non-binding basis."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Review the documentation package and confirm legal status, statutory authority, governing board/trustees and authorized signatory list (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Run sanctions, watchlist and adverse-media screening on the entity, its governing board, trustees and authorized signatories (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Obtain details on the transferring custodian and the source of the assets being transitioned from the competing firm (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Complete standard KYC review before any phased funding begins; route any timeline or expedite questions to Compliance rather than committing to dates (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Draft a non-binding transition and phased-funding plan ($400M initial, remainder over 6 months) and confirm account structure for fixed income and real assets\n- [RELATIONSHIP_MANAGER] Set client expectations that KYC review precedes funding and coordinate document requests with the client"
+        },
+        "risk_evidence": {
+          "text": "The record describes a public pension fund with a stated complete documentation package, confirmed investment committee approval and a 10-year relationship history with another manager. No positive compliance indicators such as opaque ownership, unsupported source of funds, resistance to due diligence or intermediaries are stated. Size, phased funding and asset transition are operational complexity, not compliance risk. The documentation claims are unverified and no screening has been performed, so standard KYC applies.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Beneficial ownership/control and authorized signatory list, including governing board or trustees [not stated in application]\n- Constitutional or statutory documents confirming the entity's legal status and authority to invest [not stated in application]\n- Source of funds details for the assets being transitioned from the competing firm [not stated in application]\n- Independent verification of the documentation package reported as received [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:15+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0304",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "1200000000",
+        "submitted": {
+          "date": "2026-01-09"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Pacific Northwest Teachers Retirement System is a public pension fund seeking to allocate about $1.2B to investment-grade fixed income and real assets, with $400M initially and the rest over 6 months. Onboarding complexity is medium because of the size, phased funding and transition of assets from an incumbent manager. The compliance triage is LOW risk with standard priority, but standard KYC review is still required and the documentation claims are unverified. Account opening and funding wait for Compliance's review. In the meantime, Operations should collect the missing ownership, authority and source-of-funds information while transition planning proceeds on a non-binding basis."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Review the documentation package and confirm legal status, statutory authority, governing board/trustees and authorized signatory list (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Run sanctions, watchlist and adverse-media screening on the entity, its governing board, trustees and authorized signatories (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Obtain details on the transferring custodian and the source of the assets being transitioned from the competing firm (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Complete standard KYC review before any phased funding begins; route any timeline or expedite questions to Compliance rather than committing to dates (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Draft a non-binding transition and phased-funding plan ($400M initial, remainder over 6 months) and confirm account structure for fixed income and real assets\n- [RELATIONSHIP_MANAGER] Set client expectations that KYC review precedes funding and coordinate document requests with the client"
+        },
+        "risk_evidence": {
+          "text": "The record describes a public pension fund with a stated complete documentation package, confirmed investment committee approval and a 10-year relationship history with another manager. No positive compliance indicators such as opaque ownership, unsupported source of funds, resistance to due diligence or intermediaries are stated. Size, phased funding and asset transition are operational complexity, not compliance risk. The documentation claims are unverified and no screening has been performed, so standard KYC applies.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Beneficial ownership/control and authorized signatory list, including governing board or trustees [not stated in application]\n- Constitutional or statutory documents confirming the entity's legal status and authority to invest [not stated in application]\n- Source of funds details for the assets being transitioned from the competing firm [not stated in application]\n- Independent verification of the documentation package reported as received [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:15+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0305",
+      "item_name": "James Okafor",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0305",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "42000000",
+        "submitted": {
+          "date": "2026-01-10"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "James Okafor is a U.S. citizen and high-net-worth individual working overseas, with about $42M in estimated AUM. He wants wealth management and trust services, including a generation-skipping trust and two irrevocable life insurance trusts, and coordination with his estate attorney. Onboarding complexity is medium because of the trust structures, the external attorney and the international residency. The compliance triage is LOW risk with standard priority, but Compliance must still complete standard KYC review before any account is opened or funded. Next step is for Compliance to start screening while Operations collects the missing identity, source of wealth and trust documents."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP and adverse-media screening in ComplianceOne and begin the standard KYC review (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect identity documents and proof of address, including overseas residence details and the country of assignment (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request source of wealth documentation such as compensation and stock option records (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Obtain trust structure details (grantors, trustees, beneficiaries) and the estate planning attorney's contact information, then open coordination with the attorney (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Confirm employer name and whether insider or trading restrictions apply to employer stock, and note any investment constraints"
+        },
+        "risk_evidence": {
+          "text": "The record describes a U.S. citizen with a plausible, specific source of wealth (executive compensation and stock options over 18 years) and trust structures with an apparent estate-planning purpose. No positive compliance indicators are stated, such as opacity, PEP status, resistance to due diligence, or unexplained offshore vehicles. The complexity comes from the trusts and international residency, which is operational rather than a compliance risk. Standard KYC applies, and the gaps listed are routine items to be collected.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Identity documents and current residential address, including overseas residence details [not stated in application]\n- Documentary support for source of wealth (e.g., compensation records, stock option exercise history) [not stated in application]\n- Details of the entity structures, trustees, grantors and beneficiaries of the planned trusts [not stated in application]\n- Estate planning attorney's name and contact details [not stated in application]\n- Country of overseas assignment and the employer's name, including any insider or trading restrictions on employer stock [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:18+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0305",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "42000000",
+        "submitted": {
+          "date": "2026-01-10"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "James Okafor is a U.S. citizen and high-net-worth individual working overseas, with about $42M in estimated AUM. He wants wealth management and trust services, including a generation-skipping trust and two irrevocable life insurance trusts, and coordination with his estate attorney. Onboarding complexity is medium because of the trust structures, the external attorney and the international residency. The compliance triage is LOW risk with standard priority, but Compliance must still complete standard KYC review before any account is opened or funded. Next step is for Compliance to start screening while Operations collects the missing identity, source of wealth and trust documents."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP and adverse-media screening in ComplianceOne and begin the standard KYC review (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect identity documents and proof of address, including overseas residence details and the country of assignment (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request source of wealth documentation such as compensation and stock option records (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Obtain trust structure details (grantors, trustees, beneficiaries) and the estate planning attorney's contact information, then open coordination with the attorney (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Confirm employer name and whether insider or trading restrictions apply to employer stock, and note any investment constraints"
+        },
+        "risk_evidence": {
+          "text": "The record describes a U.S. citizen with a plausible, specific source of wealth (executive compensation and stock options over 18 years) and trust structures with an apparent estate-planning purpose. No positive compliance indicators are stated, such as opacity, PEP status, resistance to due diligence, or unexplained offshore vehicles. The complexity comes from the trusts and international residency, which is operational rather than a compliance risk. Standard KYC applies, and the gaps listed are routine items to be collected.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Identity documents and current residential address, including overseas residence details [not stated in application]\n- Documentary support for source of wealth (e.g., compensation records, stock option exercise history) [not stated in application]\n- Details of the entity structures, trustees, grantors and beneficiaries of the planned trusts [not stated in application]\n- Estate planning attorney's name and contact details [not stated in application]\n- Country of overseas assignment and the employer's name, including any insider or trading restrictions on employer stock [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:18+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0306",
+      "item_name": "Brightpath University Endowment",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0306",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Medium"
+        },
+        "review_priority": {
+          "label": "Enhanced Review"
+        },
+        "routing": {
+          "label": "Enhanced Due Diligence"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "320000000",
+        "submitted": {
+          "date": "2026-01-10"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Brightpath University Endowment is a new institutional applicant seeking to allocate about $320M across domestic equity, international equity and hedge fund strategies, with ESG exclusions. Onboarding complexity is MEDIUM because of the size, custom restrictions, multiple strategies and a Q2 funding deadline. The compliance triage is MEDIUM with ENHANCED_REVIEW, mainly because the board resolution is unsigned and several entity and governance documents have not been stated. Account opening and funding wait for a human Compliance decision; the next step is to obtain the executed resolution and documents while Compliance decides what preparatory work and timeline are acceptable."
+        },
+        "next_actions": {
+          "text": "- [RELATIONSHIP_MANAGER] Request the executed board resolution and confirmation of signing authority from the client; no account opening or funding steps until received and reviewed. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Send the client a document request for entity formation documents, tax-exempt status evidence, authorized signatory list with ID, governing body details, and source of assets/donor fund restrictions. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Perform enhanced KYC review, including sanctions, PEP and adverse-media screening on the entity, governing body and signatories, and review the investment committee documentation. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Decide whether any preparatory onboarding work may occur before the resolution is signed, and whether the Q2 parallel-onboarding request can be accommodated; advise the relationship manager on what to tell the client. (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare non-binding groundwork: capture the ESG exclusion requirements (fossil fuels, private prisons, tobacco) and scope the screening and mandate restrictions, without committing to any account setup.\n- [LEGAL] Review the mandate and agreement terms for the hedge fund allocation and ESG restrictions, so documents are ready once authority is confirmed."
+        },
+        "risk_evidence": {
+          "text": "The record describes a university endowment with a clear purpose and an investment committee package reported as provided. The main indicators are the unsigned board resolution, which leaves authority to engage unconfirmed, and the request to start onboarding in parallel with final approval. Large size, ESG exclusions and the deadline are operational complexity. No opacity, unsupported funds or resistance to due diligence is stated, so the level is MEDIUM pending specific follow-up.\n\nEvidence:\n- [MEDIUM] Board resolution authorizing the mandate is not yet signed: \"Board resolution pending final signature.\"\n- [LOW] Request to begin onboarding before final internal approval is complete: \"Requesting that onboarding begin in parallel with the final approval to meet a Q2 funding deadline.\""
+        },
+        "gaps": {
+          "text": "- Signed board resolution authorizing the investment mandate and signatories [reported missing or pending]\n- Legal entity formation documents and evidence of tax-exempt/charitable status [not stated in application]\n- List of authorized signatories and identification documents [not stated in application]\n- Source of endowment assets (donor contributions, gifts) and any restricted-fund terms [not stated in application]\n- Governing body members and any beneficial ownership or control information [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:20+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0306",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Medium"
+        },
+        "review_priority": {
+          "label": "Enhanced Review"
+        },
+        "routing": {
+          "label": "Enhanced Due Diligence"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "320000000",
+        "submitted": {
+          "date": "2026-01-10"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Brightpath University Endowment is a new institutional applicant seeking to allocate about $320M across domestic equity, international equity and hedge fund strategies, with ESG exclusions. Onboarding complexity is MEDIUM because of the size, custom restrictions, multiple strategies and a Q2 funding deadline. The compliance triage is MEDIUM with ENHANCED_REVIEW, mainly because the board resolution is unsigned and several entity and governance documents have not been stated. Account opening and funding wait for a human Compliance decision; the next step is to obtain the executed resolution and documents while Compliance decides what preparatory work and timeline are acceptable."
+        },
+        "next_actions": {
+          "text": "- [RELATIONSHIP_MANAGER] Request the executed board resolution and confirmation of signing authority from the client; no account opening or funding steps until received and reviewed. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Send the client a document request for entity formation documents, tax-exempt status evidence, authorized signatory list with ID, governing body details, and source of assets/donor fund restrictions. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Perform enhanced KYC review, including sanctions, PEP and adverse-media screening on the entity, governing body and signatories, and review the investment committee documentation. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Decide whether any preparatory onboarding work may occur before the resolution is signed, and whether the Q2 parallel-onboarding request can be accommodated; advise the relationship manager on what to tell the client. (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare non-binding groundwork: capture the ESG exclusion requirements (fossil fuels, private prisons, tobacco) and scope the screening and mandate restrictions, without committing to any account setup.\n- [LEGAL] Review the mandate and agreement terms for the hedge fund allocation and ESG restrictions, so documents are ready once authority is confirmed."
+        },
+        "risk_evidence": {
+          "text": "The record describes a university endowment with a clear purpose and an investment committee package reported as provided. The main indicators are the unsigned board resolution, which leaves authority to engage unconfirmed, and the request to start onboarding in parallel with final approval. Large size, ESG exclusions and the deadline are operational complexity. No opacity, unsupported funds or resistance to due diligence is stated, so the level is MEDIUM pending specific follow-up.\n\nEvidence:\n- [MEDIUM] Board resolution authorizing the mandate is not yet signed: \"Board resolution pending final signature.\"\n- [LOW] Request to begin onboarding before final internal approval is complete: \"Requesting that onboarding begin in parallel with the final approval to meet a Q2 funding deadline.\""
+        },
+        "gaps": {
+          "text": "- Signed board resolution authorizing the investment mandate and signatories [reported missing or pending]\n- Legal entity formation documents and evidence of tax-exempt/charitable status [not stated in application]\n- List of authorized signatories and identification documents [not stated in application]\n- Source of endowment assets (donor contributions, gifts) and any restricted-fund terms [not stated in application]\n- Governing body members and any beneficial ownership or control information [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:20+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0307",
+      "item_name": "Velocity Venture Partners LLC",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0307",
+        "client_type": "Corporate",
+        "ai_risk": {
+          "label": "Medium"
+        },
+        "review_priority": {
+          "label": "Enhanced Review"
+        },
+        "routing": {
+          "label": "Enhanced Due Diligence"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "85000000",
+        "submitted": {
+          "date": "2026-01-12"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Velocity Venture Partners LLC is a venture capital firm seeking to place about $85M in alternative investment strategies on behalf of its fund's limited partners. Onboarding complexity is medium because of the pooled structure, the multi-country investor base and the outstanding fund documents. The compliance triage is MEDIUM with enhanced review, mainly because the general partner is a PEP, so account opening and funding wait for a human Compliance decision. The next step is for Compliance to start enhanced review while Operations and the relationship manager collect the fund formation documents, limited partner list and source-of-funds information."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Open the enhanced review file for Compliance, covering the GP's PEP status and the LLC and its principals, and have Compliance run sanctions, PEP and adverse-media screening and determine enhanced due diligence requirements (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Request certified fund formation documents and a current limited partner list from the client (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request documented source of funds and source of wealth for the GP and the capital to be placed, plus beneficial ownership of the LLC and GP entity, the fund and GP jurisdictions, and details of the GP's former government position (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Once the limited partner list is received, route it to Compliance to determine which significant investors require screening (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review the fund structure and cross-border investor base for any legal or subscription documentation implications for the alternative strategies, as non-binding preparation\n- [CLIENT_OPERATIONS] Hold account opening and funding until Compliance records its decision following enhanced review (BLOCKS ACCOUNT OPENING)"
+        },
+        "risk_evidence": {
+          "text": "The general partner is described as a former senior government official who left office 14 months ago, which is a PEP indicator requiring enhanced due diligence. The record also reports missing fund formation documents and an outdated limited partner list, and the fund has investors in multiple countries. No concealment, resistance or pressure is stated, so the level is MEDIUM with enhanced review rather than HIGH.\n\nEvidence:\n- [HIGH] General partner is a PEP (former senior government official): \"General partner is a former senior government official who left office 14 months ago\"\n- [MEDIUM] Limited partner base not current; underlying investors unidentified: \"missing certified copies of fund formation documents and an updated list of limited partners\"\n- [MEDIUM] Multi-country investor base increases cross-border and source-of-funds exposure: \"Fund documentation lists investors from multiple countries across several regions.\"\n- [MEDIUM] KYC documentation reported partially complete: \"KYC documentation is partially complete\""
+        },
+        "gaps": {
+          "text": "- Certified copies of fund formation documents [reported missing or pending]\n- Updated list of limited partners [reported missing or pending]\n- Source of funds and source of wealth for the $85M and for significant limited partners [not stated in application]\n- Fund jurisdiction(s) and domicile of the general partner entity [not stated in application]\n- Identity of the former government role, country, and any related-party PEP connections [not stated in application]\n- Beneficial ownership of the LLC and the general partner entity [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:31+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0307",
+        "client_type": "Corporate",
+        "ai_risk": {
+          "label": "Medium"
+        },
+        "review_priority": {
+          "label": "Enhanced Review"
+        },
+        "routing": {
+          "label": "Enhanced Due Diligence"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "85000000",
+        "submitted": {
+          "date": "2026-01-12"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Velocity Venture Partners LLC is a venture capital firm seeking to place about $85M in alternative investment strategies on behalf of its fund's limited partners. Onboarding complexity is medium because of the pooled structure, the multi-country investor base and the outstanding fund documents. The compliance triage is MEDIUM with enhanced review, mainly because the general partner is a PEP, so account opening and funding wait for a human Compliance decision. The next step is for Compliance to start enhanced review while Operations and the relationship manager collect the fund formation documents, limited partner list and source-of-funds information."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Open the enhanced review file for Compliance, covering the GP's PEP status and the LLC and its principals, and have Compliance run sanctions, PEP and adverse-media screening and determine enhanced due diligence requirements (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Request certified fund formation documents and a current limited partner list from the client (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request documented source of funds and source of wealth for the GP and the capital to be placed, plus beneficial ownership of the LLC and GP entity, the fund and GP jurisdictions, and details of the GP's former government position (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Once the limited partner list is received, route it to Compliance to determine which significant investors require screening (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review the fund structure and cross-border investor base for any legal or subscription documentation implications for the alternative strategies, as non-binding preparation\n- [CLIENT_OPERATIONS] Hold account opening and funding until Compliance records its decision following enhanced review (BLOCKS ACCOUNT OPENING)"
+        },
+        "risk_evidence": {
+          "text": "The general partner is described as a former senior government official who left office 14 months ago, which is a PEP indicator requiring enhanced due diligence. The record also reports missing fund formation documents and an outdated limited partner list, and the fund has investors in multiple countries. No concealment, resistance or pressure is stated, so the level is MEDIUM with enhanced review rather than HIGH.\n\nEvidence:\n- [HIGH] General partner is a PEP (former senior government official): \"General partner is a former senior government official who left office 14 months ago\"\n- [MEDIUM] Limited partner base not current; underlying investors unidentified: \"missing certified copies of fund formation documents and an updated list of limited partners\"\n- [MEDIUM] Multi-country investor base increases cross-border and source-of-funds exposure: \"Fund documentation lists investors from multiple countries across several regions.\"\n- [MEDIUM] KYC documentation reported partially complete: \"KYC documentation is partially complete\""
+        },
+        "gaps": {
+          "text": "- Certified copies of fund formation documents [reported missing or pending]\n- Updated list of limited partners [reported missing or pending]\n- Source of funds and source of wealth for the $85M and for significant limited partners [not stated in application]\n- Fund jurisdiction(s) and domicile of the general partner entity [not stated in application]\n- Identity of the former government role, country, and any related-party PEP connections [not stated in application]\n- Beneficial ownership of the LLC and the general partner entity [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:31+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0308",
+      "item_name": "Linda Vasquez",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0308",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "9500000",
+        "submitted": {
+          "date": "2026-01-13"
+        },
+        "complexity": {
+          "label": "Low"
+        },
+        "summary": {
+          "text": "Linda Vasquez is a high-net-worth individual referred by the San Francisco branch, seeking conservative wealth management for about $9.5M from a divorce settlement. Onboarding complexity is low because it involves one client, one service and no special requirements. The compliance triage is LOW risk with standard review priority, but standard KYC is still required and the settlement source and documents are unverified client claims. Next step: Compliance runs screening and document review while the relationship manager requests the settlement paperwork; account opening and funding wait for Compliance review."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP and adverse-media screening on the client in ComplianceOne and confirm PEP status, including exposure of the former spouse. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Review the provided documentation and verify identity and tax residency against original documents. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request the settlement agreement or court order and details of how the settled assets are held and will be transferred, to corroborate source of funds and wealth. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Confirm the San Francisco branch's relationship with the client and record the referral.\n- [CLIENT_OPERATIONS] Prepare account setup paperwork and plan the asset transfer logistics, without opening or funding the account.\n- [PORTFOLIO_MANAGEMENT] Draft a conservative, capital-preservation investment profile for the client, to be finalized after Compliance review."
+        },
+        "risk_evidence": {
+          "text": "The record describes a single individual referred by the firm's own branch, with a stated source of assets (divorce settlement), a conservative mandate and documentation reported as provided. No positive compliance indicators such as opaque ownership, intermediaries, resistance to due diligence or offshore vehicles are stated. Standard KYC applies, and the settlement source and documents remain the client's claims pending analyst verification.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Supporting evidence of the divorce settlement (e.g., settlement agreement or court order) to corroborate source of funds [not stated in application]\n- Identity verification documents and confirmation of tax residency [not stated in application]\n- Confirmation of PEP status or other exposure of the client or former spouse [not stated in application]\n- Details of the original source of the settled assets and how they are held or will be transferred [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:31+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0308",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "9500000",
+        "submitted": {
+          "date": "2026-01-13"
+        },
+        "complexity": {
+          "label": "Low"
+        },
+        "summary": {
+          "text": "Linda Vasquez is a high-net-worth individual referred by the San Francisco branch, seeking conservative wealth management for about $9.5M from a divorce settlement. Onboarding complexity is low because it involves one client, one service and no special requirements. The compliance triage is LOW risk with standard review priority, but standard KYC is still required and the settlement source and documents are unverified client claims. Next step: Compliance runs screening and document review while the relationship manager requests the settlement paperwork; account opening and funding wait for Compliance review."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP and adverse-media screening on the client in ComplianceOne and confirm PEP status, including exposure of the former spouse. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Review the provided documentation and verify identity and tax residency against original documents. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request the settlement agreement or court order and details of how the settled assets are held and will be transferred, to corroborate source of funds and wealth. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Confirm the San Francisco branch's relationship with the client and record the referral.\n- [CLIENT_OPERATIONS] Prepare account setup paperwork and plan the asset transfer logistics, without opening or funding the account.\n- [PORTFOLIO_MANAGEMENT] Draft a conservative, capital-preservation investment profile for the client, to be finalized after Compliance review."
+        },
+        "risk_evidence": {
+          "text": "The record describes a single individual referred by the firm's own branch, with a stated source of assets (divorce settlement), a conservative mandate and documentation reported as provided. No positive compliance indicators such as opaque ownership, intermediaries, resistance to due diligence or offshore vehicles are stated. Standard KYC applies, and the settlement source and documents remain the client's claims pending analyst verification.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Supporting evidence of the divorce settlement (e.g., settlement agreement or court order) to corroborate source of funds [not stated in application]\n- Identity verification documents and confirmation of tax residency [not stated in application]\n- Confirmation of PEP status or other exposure of the client or former spouse [not stated in application]\n- Details of the original source of the settled assets and how they are held or will be transferred [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:31+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0309",
+      "item_name": "Northern Lights Sovereign Wealth Fund",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0309",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "2000000000",
+        "submitted": {
+          "date": "2026-01-14"
+        },
+        "complexity": {
+          "label": "High"
+        },
+        "summary": {
+          "text": "Northern Lights Sovereign Wealth Fund, an institutional client describing itself as a sovereign wealth fund, wants Crestview to manage about $2B across global equity, fixed income and real assets. Onboarding complexity is HIGH because of the large size, the reciprocal KYC request and the demand for a dedicated team with weekly calls. The compliance triage is LOW with STANDARD priority, but standard KYC by Compliance is still required and several items are missing, including entity details, signatories, source of funds and PEP status. Account opening and funding wait for Compliance's review; the next step is for Compliance to start screening and for the relationship manager to request the missing documents."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Start standard KYC review: run sanctions, watchlist, PEP and adverse-media screening on the entity, sponsoring government and key officials, and review the submitted due diligence package against the sovereign/institutional checklist, recording any gaps (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request missing information from the client: legal entity and sponsoring government details, authorized signatories, constitutional or founding documents, state ownership evidence and a source of funds statement for the $2B (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Route the reciprocal KYC request to the appropriate compliance contact for a coordinated response, and have Compliance decide how to handle the client's review of the firm's practices\n- [LEGAL] Review the legal documentation and authority-to-contract evidence once received, including the investment management agreement terms (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Set up a dedicated onboarding team and weekly status call cadence for non-binding preparation, with no commitments on account opening or funding timing until Compliance concludes its review\n- [PORTFOLIO_MANAGEMENT] Begin non-binding preparation of the multi-asset mandate scoping across global equity, fixed income and real assets, with no trading or funding until Compliance completes its review"
+        },
+        "risk_evidence": {
+          "text": "The record describes a sovereign wealth fund with a clear investment purpose and states that extensive due diligence documentation was provided. No positive compliance indicators such as opaque ownership, resistance to due diligence, intermediaries or unsupported funds are stated. Large AUM, reciprocal KYC and high-touch service requests are operational complexity rather than compliance risk. Sovereign status and documentation are the client's claims and remain unverified, so standard KYC with a full gap review applies.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Governing legal entity details, sponsoring government and authorized signatories [not stated in application]\n- Identification and verification of the entity's authority to contract, and of ultimate state ownership [not stated in application]\n- Source of funds description for the $2B allocation [not stated in application]\n- Contents of the due diligence documentation package actually provided [not stated in application]\n- PEP status of government-linked officials and signatories [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:37+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0309",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "2000000000",
+        "submitted": {
+          "date": "2026-01-14"
+        },
+        "complexity": {
+          "label": "High"
+        },
+        "summary": {
+          "text": "Northern Lights Sovereign Wealth Fund, an institutional client describing itself as a sovereign wealth fund, wants Crestview to manage about $2B across global equity, fixed income and real assets. Onboarding complexity is HIGH because of the large size, the reciprocal KYC request and the demand for a dedicated team with weekly calls. The compliance triage is LOW with STANDARD priority, but standard KYC by Compliance is still required and several items are missing, including entity details, signatories, source of funds and PEP status. Account opening and funding wait for Compliance's review; the next step is for Compliance to start screening and for the relationship manager to request the missing documents."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Start standard KYC review: run sanctions, watchlist, PEP and adverse-media screening on the entity, sponsoring government and key officials, and review the submitted due diligence package against the sovereign/institutional checklist, recording any gaps (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request missing information from the client: legal entity and sponsoring government details, authorized signatories, constitutional or founding documents, state ownership evidence and a source of funds statement for the $2B (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Route the reciprocal KYC request to the appropriate compliance contact for a coordinated response, and have Compliance decide how to handle the client's review of the firm's practices\n- [LEGAL] Review the legal documentation and authority-to-contract evidence once received, including the investment management agreement terms (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Set up a dedicated onboarding team and weekly status call cadence for non-binding preparation, with no commitments on account opening or funding timing until Compliance concludes its review\n- [PORTFOLIO_MANAGEMENT] Begin non-binding preparation of the multi-asset mandate scoping across global equity, fixed income and real assets, with no trading or funding until Compliance completes its review"
+        },
+        "risk_evidence": {
+          "text": "The record describes a sovereign wealth fund with a clear investment purpose and states that extensive due diligence documentation was provided. No positive compliance indicators such as opaque ownership, resistance to due diligence, intermediaries or unsupported funds are stated. Large AUM, reciprocal KYC and high-touch service requests are operational complexity rather than compliance risk. Sovereign status and documentation are the client's claims and remain unverified, so standard KYC with a full gap review applies.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Governing legal entity details, sponsoring government and authorized signatories [not stated in application]\n- Identification and verification of the entity's authority to contract, and of ultimate state ownership [not stated in application]\n- Source of funds description for the $2B allocation [not stated in application]\n- Contents of the due diligence documentation package actually provided [not stated in application]\n- PEP status of government-linked officials and signatories [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:37+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0310",
+      "item_name": "Heritage Family Office",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0310",
+        "client_type": "Family Office",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "175000000",
+        "submitted": {
+          "date": "2026-01-15"
+        },
+        "complexity": {
+          "label": "High"
+        },
+        "summary": {
+          "text": "Heritage Family Office is a three-generation family office seeking comprehensive wealth management for about $175M across trusts, LLCs, individual accounts and a foundation. Onboarding complexity is HIGH because of roughly 22 accounts, multiple entities, consolidated reporting and tax-lot accounting needs, and three external advisors. The compliance triage is LOW with STANDARD priority, but standard KYC review by Compliance is still required and ownership, source of wealth, identity and entity documents have not yet been provided. The next step is to request the full document set from the client while Operations and Reporting do non-binding preparation; account opening and funding wait for Compliance review."
+        },
+        "next_actions": {
+          "text": "- [RELATIONSHIP_MANAGER] Send the client a consolidated document request covering ownership and control details for every trust, LLC and the foundation, formation documents and jurisdictions, identity documents, authorized signatories, PEP declarations and source of wealth (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Run sanctions, PEP and adverse-media screening in ComplianceOne for all principals and entities once identified, and complete standard KYC review of the collected materials (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review trust, LLC and foundation formation documents and confirm authority and signing arrangements for each entity (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Build an account map of the approximately 22 accounts by entity, with a draft onboarding sequence (non-binding, no account opening or funding)\n- [CLIENT_REPORTING] Scope consolidated reporting and tax-lot accounting requirements across all entities and confirm data needs from the three external advisors\n- [PORTFOLIO_MANAGEMENT] Gather investment objectives and any restrictions per entity to prepare for portfolio setup after Compliance review concludes"
+        },
+        "risk_evidence": {
+          "text": "The record describes a transparent, explained multi-entity family structure with no stated compliance indicators such as nominees, offshore vehicles without purpose, PEP exposure, unsupported funds, or resistance to due diligence. The complexity (22 accounts, multiple entities, external advisors, large AUM) is operational rather than compliance risk. Beneficial ownership, source of wealth and entity documentation are not stated and need standard collection and review; no screening has been performed.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Beneficial ownership and control details for each trust, LLC and the family foundation (trustees, settlors, beneficiaries, controlling persons) [not stated in application]\n- Source of wealth narrative and supporting evidence for the family's assets [not stated in application]\n- Identity documents and authorized signatory list for the family office and individual account holders [not stated in application]\n- Formation documents and jurisdictions of the trusts, LLCs and foundation [not stated in application]\n- PEP status declarations for family members and controlling persons [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:46+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0310",
+        "client_type": "Family Office",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "175000000",
+        "submitted": {
+          "date": "2026-01-15"
+        },
+        "complexity": {
+          "label": "High"
+        },
+        "summary": {
+          "text": "Heritage Family Office is a three-generation family office seeking comprehensive wealth management for about $175M across trusts, LLCs, individual accounts and a foundation. Onboarding complexity is HIGH because of roughly 22 accounts, multiple entities, consolidated reporting and tax-lot accounting needs, and three external advisors. The compliance triage is LOW with STANDARD priority, but standard KYC review by Compliance is still required and ownership, source of wealth, identity and entity documents have not yet been provided. The next step is to request the full document set from the client while Operations and Reporting do non-binding preparation; account opening and funding wait for Compliance review."
+        },
+        "next_actions": {
+          "text": "- [RELATIONSHIP_MANAGER] Send the client a consolidated document request covering ownership and control details for every trust, LLC and the foundation, formation documents and jurisdictions, identity documents, authorized signatories, PEP declarations and source of wealth (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Run sanctions, PEP and adverse-media screening in ComplianceOne for all principals and entities once identified, and complete standard KYC review of the collected materials (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review trust, LLC and foundation formation documents and confirm authority and signing arrangements for each entity (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Build an account map of the approximately 22 accounts by entity, with a draft onboarding sequence (non-binding, no account opening or funding)\n- [CLIENT_REPORTING] Scope consolidated reporting and tax-lot accounting requirements across all entities and confirm data needs from the three external advisors\n- [PORTFOLIO_MANAGEMENT] Gather investment objectives and any restrictions per entity to prepare for portfolio setup after Compliance review concludes"
+        },
+        "risk_evidence": {
+          "text": "The record describes a transparent, explained multi-entity family structure with no stated compliance indicators such as nominees, offshore vehicles without purpose, PEP exposure, unsupported funds, or resistance to due diligence. The complexity (22 accounts, multiple entities, external advisors, large AUM) is operational rather than compliance risk. Beneficial ownership, source of wealth and entity documentation are not stated and need standard collection and review; no screening has been performed.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Beneficial ownership and control details for each trust, LLC and the family foundation (trustees, settlors, beneficiaries, controlling persons) [not stated in application]\n- Source of wealth narrative and supporting evidence for the family's assets [not stated in application]\n- Identity documents and authorized signatory list for the family office and individual account holders [not stated in application]\n- Formation documents and jurisdictions of the trusts, LLCs and foundation [not stated in application]\n- PEP status declarations for family members and controlling persons [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:46+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0311",
+      "item_name": "Eastbridge Trading Group Ltd",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0311",
+        "client_type": "Corporate",
+        "ai_risk": {
+          "label": "High"
+        },
+        "review_priority": {
+          "label": "Escalate"
+        },
+        "routing": {
+          "label": "Compliance Escalation"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "45000000",
+        "submitted": {
+          "date": "2026-01-16"
+        },
+        "complexity": {
+          "label": "Low"
+        },
+        "summary": {
+          "text": "Eastbridge Trading Group Ltd, an 8-month-old corporate with a sole director who is also the beneficial owner, wants Fixed Income Management for about $45M of short-duration cash management. Operationally it is simple: one entity, one service and no special requirements stated. The compliance triage is HIGH with ESCALATE priority, driven by thin source-of-funds support, missing financials and bank statements, limited operating history, and client resistance to documentation. Account opening and funding wait for a human compliance decision. The next step is escalating to senior compliance while the team gathers the missing documents and only does non-binding preparation."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Escalate the application to senior compliance for a human decision on enhanced review, and ask Compliance how to respond to the client's request for a compressed timeline. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request from the client audited financials, bank statements and trading contracts or invoices supporting the stated trading profits, plus an explanation of how the funds were accumulated. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect incorporation documents, jurisdiction of incorporation, and identity documents for the beneficial owner/sole director, and obtain details of the trading business. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Conduct sanctions, PEP and adverse-media screening and independent verification of incorporation, beneficial ownership and the nature of the business. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Give the client a message, as approved by Compliance, that onboarding will not be accelerated ahead of due diligence and that documentation is required.\n- [PORTFOLIO_MANAGEMENT] Prepare non-binding groundwork for a short-duration fixed income mandate (draft documentation set and account setup checklist) without opening or funding any account."
+        },
+        "risk_evidence": {
+          "text": "The company is 8 months old and proposes to invest $45M, with source of funds described only as 'trading profits' and no audited financials or bank statements provided. The client is pressing for a compressed onboarding timeline and has expressed frustration with documentation requests. The combination of unsupported source of funds, minimal operating history and resistance to due diligence drives the HIGH level; the single identified beneficial owner is a modest mitigant.\n\nEvidence:\n- [MEDIUM] Very limited operating history: \"Company was formed just 8 months ago with limited operating history.\"\n- [HIGH] Vague, thinly supported source of funds for a $45M investment: \"Source of funds is described as 'trading profits' but supporting documentation is minimal\"\n- [HIGH] No audited financials or bank statements provided: \"no audited financials or bank statements provided\"\n- [HIGH] Pressure to compress onboarding and frustration with documentation requests: \"Client insists on a compressed onboarding timeline and has expressed frustration with documentation requirements.\""
+        },
+        "gaps": {
+          "text": "- Audited financial statements [reported missing or pending]\n- Bank statements evidencing the trading profits [reported missing or pending]\n- Details of the trading business: counterparties, jurisdictions, commodities or goods traded [not stated in application]\n- Identity and verification documents for the beneficial owner/sole director and incorporation documents [not stated in application]\n- PEP and sanctions status of the beneficial owner [not stated in application]\n- Jurisdiction of incorporation and explanation of how the $45M was accumulated within 8 months [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:47+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0311",
+        "client_type": "Corporate",
+        "ai_risk": {
+          "label": "High"
+        },
+        "review_priority": {
+          "label": "Escalate"
+        },
+        "routing": {
+          "label": "Compliance Escalation"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "45000000",
+        "submitted": {
+          "date": "2026-01-16"
+        },
+        "complexity": {
+          "label": "Low"
+        },
+        "summary": {
+          "text": "Eastbridge Trading Group Ltd, an 8-month-old corporate with a sole director who is also the beneficial owner, wants Fixed Income Management for about $45M of short-duration cash management. Operationally it is simple: one entity, one service and no special requirements stated. The compliance triage is HIGH with ESCALATE priority, driven by thin source-of-funds support, missing financials and bank statements, limited operating history, and client resistance to documentation. Account opening and funding wait for a human compliance decision. The next step is escalating to senior compliance while the team gathers the missing documents and only does non-binding preparation."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Escalate the application to senior compliance for a human decision on enhanced review, and ask Compliance how to respond to the client's request for a compressed timeline. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request from the client audited financials, bank statements and trading contracts or invoices supporting the stated trading profits, plus an explanation of how the funds were accumulated. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect incorporation documents, jurisdiction of incorporation, and identity documents for the beneficial owner/sole director, and obtain details of the trading business. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Conduct sanctions, PEP and adverse-media screening and independent verification of incorporation, beneficial ownership and the nature of the business. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Give the client a message, as approved by Compliance, that onboarding will not be accelerated ahead of due diligence and that documentation is required.\n- [PORTFOLIO_MANAGEMENT] Prepare non-binding groundwork for a short-duration fixed income mandate (draft documentation set and account setup checklist) without opening or funding any account."
+        },
+        "risk_evidence": {
+          "text": "The company is 8 months old and proposes to invest $45M, with source of funds described only as 'trading profits' and no audited financials or bank statements provided. The client is pressing for a compressed onboarding timeline and has expressed frustration with documentation requests. The combination of unsupported source of funds, minimal operating history and resistance to due diligence drives the HIGH level; the single identified beneficial owner is a modest mitigant.\n\nEvidence:\n- [MEDIUM] Very limited operating history: \"Company was formed just 8 months ago with limited operating history.\"\n- [HIGH] Vague, thinly supported source of funds for a $45M investment: \"Source of funds is described as 'trading profits' but supporting documentation is minimal\"\n- [HIGH] No audited financials or bank statements provided: \"no audited financials or bank statements provided\"\n- [HIGH] Pressure to compress onboarding and frustration with documentation requests: \"Client insists on a compressed onboarding timeline and has expressed frustration with documentation requirements.\""
+        },
+        "gaps": {
+          "text": "- Audited financial statements [reported missing or pending]\n- Bank statements evidencing the trading profits [reported missing or pending]\n- Details of the trading business: counterparties, jurisdictions, commodities or goods traded [not stated in application]\n- Identity and verification documents for the beneficial owner/sole director and incorporation documents [not stated in application]\n- PEP and sanctions status of the beneficial owner [not stated in application]\n- Jurisdiction of incorporation and explanation of how the $45M was accumulated within 8 months [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:47+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0312",
+      "item_name": "Midwest Municipal Workers Union",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0312",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "180000000",
+        "submitted": {
+          "date": "2026-01-17"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Midwest Municipal Workers Union is a municipal workers union pension fund with about $180M seeking conservative fixed income management after its current manager retires. Onboarding complexity is medium, driven by the size of the asset transition and the need to coordinate with the outgoing manager and set up investment-grade, no-derivatives restrictions. The compliance triage is LOW with standard priority, but Compliance must still complete standard KYC review before the account is opened or funded. The next step is screening and signatory identification, while portfolio management and operations prepare the transition without commitments."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, watchlist and PEP screening on the entity and its trustees and authorized signatories as part of standard KYC review (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request the trustee and authorized signatory list with identification documents from the client (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review the trust agreement, investment policy statement and board resolution to confirm legal structure, governing authority and signatories, and verify the documents (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Confirm the source of assets and the transfer mechanics from the outgoing manager (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare transition plan and set up the investment-grade, no-derivatives guidelines for portfolio management (non-binding preparation only)\n- [CLIENT_OPERATIONS] Coordinate with the client and outgoing manager on transition logistics and reporting needs, without committing to funding dates until Compliance completes review"
+        },
+        "risk_evidence": {
+          "text": "The record describes a municipal workers union pension fund with a conservative investment-grade, no-derivatives mandate and a stated complete documentation package. No positive compliance indicators such as opaque ownership, unsupported source of funds, intermediaries, or resistance to due diligence are stated. Standard KYC applies, and routine items such as signatory identification and document verification remain for analyst review.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Trustee, board member and authorized signatory list with identification [not stated in application]\n- Confirmation of the fund's legal structure, registration and governing authority [not stated in application]\n- Source of the fund's assets (member and employer contributions) and transfer arrangements from the outgoing manager [not stated in application]\n- Independent verification of the documents reported as received [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:50+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0312",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "180000000",
+        "submitted": {
+          "date": "2026-01-17"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Midwest Municipal Workers Union is a municipal workers union pension fund with about $180M seeking conservative fixed income management after its current manager retires. Onboarding complexity is medium, driven by the size of the asset transition and the need to coordinate with the outgoing manager and set up investment-grade, no-derivatives restrictions. The compliance triage is LOW with standard priority, but Compliance must still complete standard KYC review before the account is opened or funded. The next step is screening and signatory identification, while portfolio management and operations prepare the transition without commitments."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, watchlist and PEP screening on the entity and its trustees and authorized signatories as part of standard KYC review (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Request the trustee and authorized signatory list with identification documents from the client (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Review the trust agreement, investment policy statement and board resolution to confirm legal structure, governing authority and signatories, and verify the documents (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Confirm the source of assets and the transfer mechanics from the outgoing manager (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare transition plan and set up the investment-grade, no-derivatives guidelines for portfolio management (non-binding preparation only)\n- [CLIENT_OPERATIONS] Coordinate with the client and outgoing manager on transition logistics and reporting needs, without committing to funding dates until Compliance completes review"
+        },
+        "risk_evidence": {
+          "text": "The record describes a municipal workers union pension fund with a conservative investment-grade, no-derivatives mandate and a stated complete documentation package. No positive compliance indicators such as opaque ownership, unsupported source of funds, intermediaries, or resistance to due diligence are stated. Standard KYC applies, and routine items such as signatory identification and document verification remain for analyst review.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Trustee, board member and authorized signatory list with identification [not stated in application]\n- Confirmation of the fund's legal structure, registration and governing authority [not stated in application]\n- Source of the fund's assets (member and employer contributions) and transfer arrangements from the outgoing manager [not stated in application]\n- Independent verification of the documents reported as received [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:19:50+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0313",
+      "item_name": "Robert and Diane Mercer-Hastings",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0313",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Medium"
+        },
+        "review_priority": {
+          "label": "Enhanced Review"
+        },
+        "routing": {
+          "label": "Enhanced Due Diligence"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "67000000",
+        "submitted": {
+          "date": "2026-01-18"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Robert and Diane Mercer-Hastings are a married high-net-worth couple (about $67M AUM) seeking wealth management, estate planning coordination, and a diversification plan for a $40M employer stock position; he is CEO of a public healthcare company. Onboarding complexity is MEDIUM, driven by the concentrated position, estate planning, and coordination with corporate counsel on trading windows and a possible 10b5-1 plan. The compliance triage is MEDIUM with ENHANCED_REVIEW, so account opening and funding wait for a human Compliance decision. Identity documents, source-of-wealth evidence, 10b5-1 details, and screening status are not yet stated. The next step is for Compliance to start screening and enhanced KYC review while Operations requests documents and the RM gathers plan and counsel details."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP and adverse-media screening for both spouses and begin enhanced KYC review; Compliance to make the decision on account opening (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Request identity documents and source-of-wealth documentation (including stock sale records and real estate holdings) from the clients (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Obtain 10b5-1 plan details and trading window/blackout restrictions, and the clients' written authorization and contact details for corporate counsel (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Set up restricted-list and pre-clearance procedures for the employer stock and review insider-status constraints before any trading (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare a preliminary, non-binding outline of diversification and estate planning coordination approach, with no trade execution until Compliance and Legal sign off"
+        },
+        "risk_evidence": {
+          "text": "The husband is the CEO of a publicly traded company and holds a $40M employer stock position, with a possible 10b5-1 plan and trading window restrictions. This creates insider trading-restriction and legal-coordination needs, not an allegation of misconduct. The record shows no opacity, resistance to due diligence, or unexplained structures, but source-of-wealth and identity details are not stated. MEDIUM reflects the need for specific follow-up on insider status and wealth documentation.\n\nEvidence:\n- [MEDIUM] Corporate insider with concentrated employer stock and trading restrictions: \"he is CEO of a publicly traded healthcare company\"\n- [MEDIUM] Potential 10b5-1 plan and trading window restrictions require legal coordination: \"Requires coordination with corporate counsel on trading window restrictions.\""
+        },
+        "gaps": {
+          "text": "- Government-issued identity documents for both spouses [not stated in application]\n- Source-of-wealth evidence (stock sale records, compensation, real estate holdings) [not stated in application]\n- Details of the 10b5-1 plan and the trading window/blackout restrictions [not stated in application]\n- Contact details and authorization for corporate counsel coordination [not stated in application]\n- PEP and sanctions screening status for both spouses [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:20:02+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0313",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "Medium"
+        },
+        "review_priority": {
+          "label": "Enhanced Review"
+        },
+        "routing": {
+          "label": "Enhanced Due Diligence"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "67000000",
+        "submitted": {
+          "date": "2026-01-18"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Robert and Diane Mercer-Hastings are a married high-net-worth couple (about $67M AUM) seeking wealth management, estate planning coordination, and a diversification plan for a $40M employer stock position; he is CEO of a public healthcare company. Onboarding complexity is MEDIUM, driven by the concentrated position, estate planning, and coordination with corporate counsel on trading windows and a possible 10b5-1 plan. The compliance triage is MEDIUM with ENHANCED_REVIEW, so account opening and funding wait for a human Compliance decision. Identity documents, source-of-wealth evidence, 10b5-1 details, and screening status are not yet stated. The next step is for Compliance to start screening and enhanced KYC review while Operations requests documents and the RM gathers plan and counsel details."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Run sanctions, PEP and adverse-media screening for both spouses and begin enhanced KYC review; Compliance to make the decision on account opening (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Request identity documents and source-of-wealth documentation (including stock sale records and real estate holdings) from the clients (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Obtain 10b5-1 plan details and trading window/blackout restrictions, and the clients' written authorization and contact details for corporate counsel (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Set up restricted-list and pre-clearance procedures for the employer stock and review insider-status constraints before any trading (BLOCKS ACCOUNT OPENING)\n- [PORTFOLIO_MANAGEMENT] Prepare a preliminary, non-binding outline of diversification and estate planning coordination approach, with no trade execution until Compliance and Legal sign off"
+        },
+        "risk_evidence": {
+          "text": "The husband is the CEO of a publicly traded company and holds a $40M employer stock position, with a possible 10b5-1 plan and trading window restrictions. This creates insider trading-restriction and legal-coordination needs, not an allegation of misconduct. The record shows no opacity, resistance to due diligence, or unexplained structures, but source-of-wealth and identity details are not stated. MEDIUM reflects the need for specific follow-up on insider status and wealth documentation.\n\nEvidence:\n- [MEDIUM] Corporate insider with concentrated employer stock and trading restrictions: \"he is CEO of a publicly traded healthcare company\"\n- [MEDIUM] Potential 10b5-1 plan and trading window restrictions require legal coordination: \"Requires coordination with corporate counsel on trading window restrictions.\""
+        },
+        "gaps": {
+          "text": "- Government-issued identity documents for both spouses [not stated in application]\n- Source-of-wealth evidence (stock sale records, compensation, real estate holdings) [not stated in application]\n- Details of the 10b5-1 plan and the trading window/blackout restrictions [not stated in application]\n- Contact details and authorization for corporate counsel coordination [not stated in application]\n- PEP and sanctions screening status for both spouses [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:20:02+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0314",
+      "item_name": "Global Impact Partners Foundation",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0314",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "95000000",
+        "submitted": {
+          "date": "2026-01-19"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Global Impact Partners Foundation is an institutional private foundation seeking to allocate $95M to impact investing and ESG strategies, with SDG-aligned impact reporting and quarterly narrative outcome reports. Onboarding complexity is medium, driven by the allocation size, custom reporting needs and competitive timeline pressure. Compliance triage is LOW with STANDARD priority, but standard KYC review is still required and account opening and funding wait for it. Next step is to collect formation documents, signatory details, board resolution and source of funds while reporting scoping proceeds in parallel; any expedite question goes to Compliance."
+        },
+        "next_actions": {
+          "text": "- [CLIENT_OPERATIONS] Request foundation formation documents, registration or tax status, jurisdiction of establishment, and details of any founders or controlling persons (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect names and ID for trustees, directors, officers and authorized signatories, and request the board resolution evidencing investment approval (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Obtain source of assets and source of funds information for the $95M allocation (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Place the application in the standard KYC queue for Compliance review, including sanctions, PEP and adverse-media screening, and decide on any request to expedite given the competing-firm timeline (BLOCKS ACCOUNT OPENING)\n- [CLIENT_REPORTING] Scope SDG-aligned impact reporting and quarterly narrative outcome report requirements with the client to confirm what can be delivered\n- [PORTFOLIO_MANAGEMENT] Confirm the impact investment strategy approach and any mandate parameters for the $95M allocation, as non-binding preparation only"
+        },
+        "risk_evidence": {
+          "text": "The record describes a private foundation with a clear charitable purpose and a stated board-approved allocation. No positive compliance indicators such as opaque ownership, unsupported funds, intermediaries, PEP exposure or resistance to due diligence are stated. The competitive evaluation and reporting demands are operational factors, not risk indicators; the foundation's governance, funding source and control details are simply not stated and need standard KYC collection.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Foundation formation documents and registration or tax-exempt status [not stated in application]\n- Identification of trustees, directors, officers and authorized signatories [not stated in application]\n- Source of foundation assets and funding origin for the $95M allocation [not stated in application]\n- Jurisdiction of establishment and any founders or controlling persons [not stated in application]\n- Board resolution or evidence of the investment approval [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:20:02+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0314",
+        "client_type": "Institutional",
+        "ai_risk": {
+          "label": "Low"
+        },
+        "review_priority": {
+          "label": "Standard"
+        },
+        "routing": {
+          "label": "Standard Kyc Queue"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "95000000",
+        "submitted": {
+          "date": "2026-01-19"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "Global Impact Partners Foundation is an institutional private foundation seeking to allocate $95M to impact investing and ESG strategies, with SDG-aligned impact reporting and quarterly narrative outcome reports. Onboarding complexity is medium, driven by the allocation size, custom reporting needs and competitive timeline pressure. Compliance triage is LOW with STANDARD priority, but standard KYC review is still required and account opening and funding wait for it. Next step is to collect formation documents, signatory details, board resolution and source of funds while reporting scoping proceeds in parallel; any expedite question goes to Compliance."
+        },
+        "next_actions": {
+          "text": "- [CLIENT_OPERATIONS] Request foundation formation documents, registration or tax status, jurisdiction of establishment, and details of any founders or controlling persons (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Collect names and ID for trustees, directors, officers and authorized signatories, and request the board resolution evidencing investment approval (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Obtain source of assets and source of funds information for the $95M allocation (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Place the application in the standard KYC queue for Compliance review, including sanctions, PEP and adverse-media screening, and decide on any request to expedite given the competing-firm timeline (BLOCKS ACCOUNT OPENING)\n- [CLIENT_REPORTING] Scope SDG-aligned impact reporting and quarterly narrative outcome report requirements with the client to confirm what can be delivered\n- [PORTFOLIO_MANAGEMENT] Confirm the impact investment strategy approach and any mandate parameters for the $95M allocation, as non-binding preparation only"
+        },
+        "risk_evidence": {
+          "text": "The record describes a private foundation with a clear charitable purpose and a stated board-approved allocation. No positive compliance indicators such as opaque ownership, unsupported funds, intermediaries, PEP exposure or resistance to due diligence are stated. The competitive evaluation and reporting demands are operational factors, not risk indicators; the foundation's governance, funding source and control details are simply not stated and need standard KYC collection.\n\nEvidence:\n- none identified"
+        },
+        "gaps": {
+          "text": "- Foundation formation documents and registration or tax-exempt status [not stated in application]\n- Identification of trustees, directors, officers and authorized signatories [not stated in application]\n- Source of foundation assets and funding origin for the $95M allocation [not stated in application]\n- Jurisdiction of establishment and any founders or controlling persons [not stated in application]\n- Board resolution or evidence of the investment approval [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:20:02+00:00"
+      }
+    },
+    {
+      "application_id": "APP-2026-0315",
+      "item_name": "R. Ashford (via Introducer)",
+      "column_values_on_create": {
+        "app_id": "APP-2026-0315",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "High"
+        },
+        "review_priority": {
+          "label": "Escalate"
+        },
+        "routing": {
+          "label": "Compliance Escalation"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "120000000",
+        "submitted": {
+          "date": "2026-01-20"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "R. Ashford is a new high-net-worth individual seeking wealth management for about $120M, with the account to be held in an offshore trust and communications routed through an advisor. Onboarding complexity is MEDIUM, driven by the trust structure, the external parties involved and a complete lack of documentation. The compliance triage is HIGH with ESCALATE priority, so account opening and funding wait for a human compliance decision. The next step is to escalate to senior compliance and hold all client and introducer engagement until Compliance directs it, while Operations prepares only non-binding paperwork."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Escalate the application to senior compliance and hold all further engagement with the client, advisor and introducer until Compliance gives direction. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Compliance to decide how to proceed with the introducer and advisor, including screening (sanctions, PEP, adverse media) of the individual, introducer, advisor and trust parties once identified, and any question on timing or the relationship. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Once Compliance approves outreach, request the trust deed, full beneficial ownership and control details, and identity documents for the individual and trust parties. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Once Compliance approves outreach, request documented source of wealth and source of funds evidence and arrange a direct verification contact with the client. (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Establish the identity, regulatory status and relationship of the introducer and advisor to the client, and the rationale for the offshore trust structure. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Prepare a non-binding onboarding file and checklist for a trust account, without opening or funding anything, so work can proceed after the Compliance decision."
+        },
+        "risk_evidence": {
+          "text": "The record shows a combination of an unaffiliated, unknown introducer, an unsupported and vague source of wealth, a request to hold assets in an offshore trust with no stated purpose, and resistance to direct contact including a declined introductory call. No documentation beyond the application form has been submitted, so beneficial ownership and the origin of funds cannot be assessed. The pattern of opacity and due diligence resistance supports a HIGH advisory level and senior attention.\n\nEvidence:\n- [HIGH] Unknown, unaffiliated introducer: \"Initial contact was made through an unaffiliated third-party introducer who is not a known contact of the firm.\"\n- [HIGH] Source of wealth vague and unsupported: \"Source of wealth listed as 'private investments and real estate development' with no supporting documentation provided.\"\n- [HIGH] Account requested in name of offshore trust without explained purpose: \"Client is requesting that the account be opened in the name of an offshore trust rather than in their personal name.\"\n- [MEDIUM] Request to route communications through advisor, avoiding direct contact: \"Has requested that all communications be routed through their advisor rather than directly to the client.\"\n- [MEDIUM] Declined standard introductory call with relationship manager: \"Declined a standard introductory call with the relationship manager.\"\n- [HIGH] No KYC documentation submitted beyond application form, with beneficial ownership of the trust unaddressed: \"No documentation has been submitted beyond the initial application form.\""
+        },
+        "gaps": {
+          "text": "- Trust deed, jurisdiction of the trust, and identification of settlor, trustees and beneficiaries [not stated in application]\n- Supporting evidence for source of wealth and source of funds for the $120M [reported missing or pending]\n- Identity documents for the individual and the trust's controlling parties [reported missing or pending]\n- Identity, regulatory status and role of the introducer and of the advisor [not stated in application]\n- Rationale for using an offshore trust and routing communications through an advisor [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:20:09+00:00",
+        "compliance": {
+          "label": "Pending Human Review"
+        }
+      },
+      "column_values_on_update": {
+        "app_id": "APP-2026-0315",
+        "client_type": "High-Net-Worth Individual",
+        "ai_risk": {
+          "label": "High"
+        },
+        "review_priority": {
+          "label": "Escalate"
+        },
+        "routing": {
+          "label": "Compliance Escalation"
+        },
+        "pipeline_status": {
+          "label": "Completed"
+        },
+        "aum_usd": "120000000",
+        "submitted": {
+          "date": "2026-01-20"
+        },
+        "complexity": {
+          "label": "Medium"
+        },
+        "summary": {
+          "text": "R. Ashford is a new high-net-worth individual seeking wealth management for about $120M, with the account to be held in an offshore trust and communications routed through an advisor. Onboarding complexity is MEDIUM, driven by the trust structure, the external parties involved and a complete lack of documentation. The compliance triage is HIGH with ESCALATE priority, so account opening and funding wait for a human compliance decision. The next step is to escalate to senior compliance and hold all client and introducer engagement until Compliance directs it, while Operations prepares only non-binding paperwork."
+        },
+        "next_actions": {
+          "text": "- [COMPLIANCE] Escalate the application to senior compliance and hold all further engagement with the client, advisor and introducer until Compliance gives direction. (BLOCKS ACCOUNT OPENING)\n- [COMPLIANCE] Compliance to decide how to proceed with the introducer and advisor, including screening (sanctions, PEP, adverse media) of the individual, introducer, advisor and trust parties once identified, and any question on timing or the relationship. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Once Compliance approves outreach, request the trust deed, full beneficial ownership and control details, and identity documents for the individual and trust parties. (BLOCKS ACCOUNT OPENING)\n- [RELATIONSHIP_MANAGER] Once Compliance approves outreach, request documented source of wealth and source of funds evidence and arrange a direct verification contact with the client. (BLOCKS ACCOUNT OPENING)\n- [LEGAL] Establish the identity, regulatory status and relationship of the introducer and advisor to the client, and the rationale for the offshore trust structure. (BLOCKS ACCOUNT OPENING)\n- [CLIENT_OPERATIONS] Prepare a non-binding onboarding file and checklist for a trust account, without opening or funding anything, so work can proceed after the Compliance decision."
+        },
+        "risk_evidence": {
+          "text": "The record shows a combination of an unaffiliated, unknown introducer, an unsupported and vague source of wealth, a request to hold assets in an offshore trust with no stated purpose, and resistance to direct contact including a declined introductory call. No documentation beyond the application form has been submitted, so beneficial ownership and the origin of funds cannot be assessed. The pattern of opacity and due diligence resistance supports a HIGH advisory level and senior attention.\n\nEvidence:\n- [HIGH] Unknown, unaffiliated introducer: \"Initial contact was made through an unaffiliated third-party introducer who is not a known contact of the firm.\"\n- [HIGH] Source of wealth vague and unsupported: \"Source of wealth listed as 'private investments and real estate development' with no supporting documentation provided.\"\n- [HIGH] Account requested in name of offshore trust without explained purpose: \"Client is requesting that the account be opened in the name of an offshore trust rather than in their personal name.\"\n- [MEDIUM] Request to route communications through advisor, avoiding direct contact: \"Has requested that all communications be routed through their advisor rather than directly to the client.\"\n- [MEDIUM] Declined standard introductory call with relationship manager: \"Declined a standard introductory call with the relationship manager.\"\n- [HIGH] No KYC documentation submitted beyond application form, with beneficial ownership of the trust unaddressed: \"No documentation has been submitted beyond the initial application form.\""
+        },
+        "gaps": {
+          "text": "- Trust deed, jurisdiction of the trust, and identification of settlor, trustees and beneficiaries [not stated in application]\n- Supporting evidence for source of wealth and source of funds for the $120M [reported missing or pending]\n- Identity documents for the individual and the trust's controlling parties [reported missing or pending]\n- Identity, regulatory status and role of the introducer and of the advisor [not stated in application]\n- Rationale for using an offshore trust and routing communications through an advisor [not stated in application]"
+        },
+        "provenance": "claude-sonnet-5-5 | risk-triage-v4 | 2026-11-03T03:20:09+00:00"
+      }
+    }
+  ]
+}

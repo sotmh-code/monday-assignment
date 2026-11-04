@@ -1,0 +1,1081 @@
+{
+  "run": {
+    "run_id": "e195dff5d8b9",
+    "mode": "live",
+    "started_at": "2026-11-03T03:22:55+00:00",
+    "finished_at": "2026-11-03T03:23:11+00:00",
+    "provider": "anthropic",
+    "model_requested": "claude-sonnet-5-5",
+    "effort": "medium",
+    "pipeline_version": "1.0.0",
+    "prompt_versions": {
+      "risk_assessment": "risk-triage-v4",
+      "onboarding_summary": "onboarding-summary-v3"
+    },
+    "schema_version": "enriched-record-v1",
+    "input_file": "crestview_client_applications.csv",
+    "input_sha256": "c8020707b44b91c83b1a0b3187810a0b40ffe77e69b371081b294fdf1c62e4c7",
+    "record_count": 5,
+    "status_counts": {
+      "COMPLETED_WITH_WARNINGS": 1,
+      "COMPLETED": 4
+    },
+    "risk_level_counts": {
+      "LOW": 3,
+      "MEDIUM": 2
+    },
+    "total_input_tokens": 8493,
+    "total_output_tokens": 11412,
+    "notes": [
+      "Subset run (--limit/--ids); full results file left untouched"
+    ]
+  },
+  "records": [
+    {
+      "application_id": "APP-2026-0305",
+      "source": {
+        "application_id": "APP-2026-0305",
+        "client_name": "James Okafor",
+        "client_type": "High-Net-Worth Individual",
+        "requested_services": "Wealth Management and Trust Services",
+        "estimated_aum": "42000000",
+        "submission_date": "01/10/2026",
+        "status": "New",
+        "description": "U.S. citizen currently on a multi-year overseas work assignment for a multinational energy company. Source of wealth is executive compensation and stock options from 18-year career. Seeking wealth management services including a generation-skipping trust and two irrevocable life insurance trusts. Multiple entity structures will be involved. Requesting coordination with his estate planning attorney. Moderate complexity due to international residency and trust structures."
+      },
+      "processing_status": "COMPLETED_WITH_WARNINGS",
+      "triage_risk_level": "LOW",
+      "review_priority": "STANDARD",
+      "routing": "MANUAL_TRIAGE",
+      "compliance_review_required": true,
+      "human_review_status": "PENDING_HUMAN_REVIEW",
+      "advisory_notice": "AI-generated preliminary intake triage based only on the application text. No sanctions, watchlist, PEP or identity screening has been performed by this system. Final KYC/AML disposition is made by Crestview Compliance.",
+      "risk_assessment": {
+        "risk_level": "LOW",
+        "review_priority": "STANDARD",
+        "risk_factors": [],
+        "mitigating_factors": [
+          {
+            "factor": "Source of wealth is stated with a specific, plausible origin and career length",
+            "source_evidence": "Source of wealth is executive compensation and stock options from 18-year career."
+          },
+          {
+            "factor": "Client is a U.S. citizen working for a multinational company, with an identified employer type",
+            "source_evidence": "U.S. citizen currently on a multi-year overseas work assignment for a multinational energy company."
+          },
+          {
+            "factor": "Trust structures have a stated estate-planning purpose and an attorney is involved",
+            "source_evidence": "Requesting coordination with his estate planning attorney."
+          }
+        ],
+        "missing_information": [
+          {
+            "item": "Identity documents and proof of current overseas residential address",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Documentary support for source of wealth (compensation records, stock option and vesting history)",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Overseas assignment country and employer name",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Details of the planned entity structures, trustees, and beneficiaries",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Estate planning attorney identity and engagement details",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Whether client is a corporate insider or subject to employer-stock trading restrictions",
+            "status": "NOT_STATED_IN_APPLICATION"
+          }
+        ],
+        "operational_complexity_notes": [
+          "Overseas residency while remaining a U.S. citizen adds cross-border servicing and reporting considerations",
+          "Generation-skipping trust and two irrevocable life insurance trusts require trust-structuring and legal coordination",
+          "Multiple entity structures planned, with the purpose described as estate planning",
+          "Coordination with the client's estate planning attorney is requested",
+          "Large AUM of $42M"
+        ],
+        "rationale": "The record describes a U.S. citizen with a stated, plausible source of wealth (18-year executive career with compensation and stock options) and trust structures tied to estate planning with an attorney involved. No positive compliance indicators such as opacity, nominees, PEP status, intermediaries or resistance to due diligence are stated. The complexity arises from international residency, trusts and multiple entities, which is operational rather than a compliance risk, though supporting documents and structure details are not yet in the record.",
+        "compliance_review_required": true,
+        "suggested_next_steps": [
+          "Run sanctions, PEP and adverse-media screening on the client and any proposed trustees or beneficiaries",
+          "Collect identity documents, proof of overseas address, and source-of-wealth documentation such as compensation and stock option records",
+          "Obtain the planned trust and entity structure details and the estate planning attorney's contact information",
+          "Confirm the overseas assignment country and whether the client has insider or trading-restriction status at his employer"
+        ]
+      },
+      "onboarding_summary": {
+        "client_overview": "James Okafor is a U.S. citizen high-net-worth individual with an estimated $42M in AUM, currently on a multi-year overseas work assignment for a multinational energy company. His stated source of wealth is executive compensation and stock options from an 18-year career.",
+        "service_needs": [
+          "Wealth management",
+          "Trust services",
+          "Setup and servicing of a generation-skipping trust and two irrevocable life insurance trusts",
+          "Coordination with the client's estate planning attorney"
+        ],
+        "onboarding_complexity": "HIGH",
+        "complexity_drivers": [
+          "Three trust structures (generation-skipping trust and two irrevocable life insurance trusts) plus multiple entity structures whose details are not yet provided",
+          "External coordination with the client's estate planning attorney, who is not yet identified",
+          "Overseas residency as a U.S. citizen adds cross-border servicing and reporting considerations",
+          "Large AUM of $42M and a combined wealth management and trust services scope"
+        ],
+        "risk_level_acknowledged": "LOW",
+        "risk_context": "The triage rates the client LOW with STANDARD review priority, but Compliance review is still required, so standard KYC must be completed by Compliance before account opening or funding. Document collection, screening preparation and trust-structure scoping can proceed in parallel.",
+        "documentation_or_review_gaps": [
+          "Identity documents and proof of current overseas residential address not stated in application",
+          "Documentary support for source of wealth (compensation records, stock option and vesting history) not stated",
+          "Overseas assignment country and employer name not stated",
+          "Details of planned entity structures, trustees and beneficiaries not stated",
+          "Estate planning attorney identity and engagement details not stated",
+          "Whether client is a corporate insider or subject to employer-stock trading restrictions not stated"
+        ],
+        "next_actions": [
+          {
+            "action": "Request identity documents, proof of overseas address, and source-of-wealth documentation (compensation and stock option/vesting records) from the client",
+            "suggested_owner": "CLIENT_OPERATIONS",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Confirm overseas assignment country and employer name, and ask whether the client has insider or employer-stock trading restriction status",
+            "suggested_owner": "RELATIONSHIP_MANAGER",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Obtain the estate planning attorney's identity and contact details, plus planned trust and entity structures, trustees and beneficiaries",
+            "suggested_owner": "RELATIONSHIP_MANAGER",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Complete standard KYC review, including sanctions, PEP and adverse-media screening on the client and any proposed trustees or beneficiaries, and make the onboarding decision",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Review the proposed trust and entity structures with the client's attorney once details are received, and identify legal documentation needs",
+            "suggested_owner": "LEGAL",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Scope cross-border servicing and reporting needs arising from overseas residency",
+            "suggested_owner": "CLIENT_REPORTING",
+            "blocks_account_opening": false
+          }
+        ],
+        "summary_text": "James Okafor is a U.S. citizen HNWI with about $42M in AUM, currently working overseas, seeking wealth management and trust services including a generation-skipping trust and two irrevocable life insurance trusts. Onboarding complexity is HIGH because of the multiple trusts and entities, attorney coordination and overseas residency. The compliance triage is LOW with STANDARD priority, but Compliance must still complete standard KYC before any account is opened or funded. Next step is to collect identity, address and source-of-wealth documents and the trust structure details while Compliance begins screening."
+      },
+      "guardrails": {
+        "evidence_checks": [
+          {
+            "kind": "mitigating_factor",
+            "index": 0,
+            "factor": "Source of wealth is stated with a specific, plausible origin and career length",
+            "source_evidence": "Source of wealth is executive compensation and stock options from 18-year career.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 1,
+            "factor": "Client is a U.S. citizen working for a multinational company, with an identified employer type",
+            "source_evidence": "U.S. citizen currently on a multi-year overseas work assignment for a multinational energy company.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 2,
+            "factor": "Trust structures have a stated estate-planning purpose and an attorney is involved",
+            "source_evidence": "Requesting coordination with his estate planning attorney.",
+            "verified_in_source": true
+          }
+        ],
+        "unverified_evidence_count": 0,
+        "policy_flags": [
+          {
+            "stage": "onboarding_summary",
+            "field": "risk_context",
+            "rule": "claims_kyc_complete",
+            "excerpt": "The triage rates the client LOW with STANDARD review priority, but Compliance review is still required, so standard KYC must be completed by Compliance before account opening or funding."
+          }
+        ]
+      },
+      "warnings": [
+        "Summary contains 1 prohibited claim(s); routed to manual triage"
+      ],
+      "errors": [],
+      "risk_assessment_sha256": "876504392244bd2767f72e7f176236addb0d980c4635f271a5ac18118f260b55",
+      "summary_consumed_risk_sha256": "876504392244bd2767f72e7f176236addb0d980c4635f271a5ac18118f260b55",
+      "llm_calls": [
+        {
+          "stage": "risk_assessment",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH3qbtTAK5VnP9gxqVQ"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 272,
+          "output_tokens": 987,
+          "cache_read_input_tokens": 3904,
+          "latency_ms": 7796
+        },
+        {
+          "stage": "onboarding_summary",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH4QihCGzCjXEBmm51o"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 1422,
+          "output_tokens": 1244,
+          "cache_read_input_tokens": 2106,
+          "latency_ms": 8184
+        }
+      ],
+      "processed_at": "2026-11-03T03:23:11+00:00",
+      "prompt_versions": {
+        "risk_assessment": "risk-triage-v4",
+        "onboarding_summary": "onboarding-summary-v3"
+      },
+      "schema_version": "enriched-record-v1"
+    },
+    {
+      "application_id": "APP-2026-0306",
+      "source": {
+        "application_id": "APP-2026-0306",
+        "client_name": "Brightpath University Endowment",
+        "client_type": "Institutional",
+        "requested_services": "Equity and Alternatives",
+        "estimated_aum": "320000000",
+        "submission_date": "01/10/2026",
+        "status": "New",
+        "description": "University endowment seeking to allocate $320M across domestic equity, international equity, and alternative strategies (hedge fund allocation). Investment committee documentation provided. Endowment has specific ESG exclusion requirements — no fossil fuels, no private prisons, no tobacco. Board resolution pending final signature. Requesting that onboarding begin in parallel with the final approval to meet a Q2 funding deadline."
+      },
+      "processing_status": "COMPLETED",
+      "triage_risk_level": "MEDIUM",
+      "review_priority": "STANDARD",
+      "routing": "STANDARD_KYC_QUEUE",
+      "compliance_review_required": true,
+      "human_review_status": "PENDING_HUMAN_REVIEW",
+      "advisory_notice": "AI-generated preliminary intake triage based only on the application text. No sanctions, watchlist, PEP or identity screening has been performed by this system. Final KYC/AML disposition is made by Crestview Compliance.",
+      "risk_assessment": {
+        "risk_level": "MEDIUM",
+        "review_priority": "STANDARD",
+        "risk_factors": [
+          {
+            "factor": "Board resolution authorizing the mandate is unsigned (pending)",
+            "category": "KYC_DOCUMENTATION_GAP",
+            "severity": "MEDIUM",
+            "source_evidence": "Board resolution pending final signature."
+          },
+          {
+            "factor": "Request to begin onboarding in parallel with final approval, tied to a funding deadline",
+            "category": "OTHER",
+            "severity": "LOW",
+            "source_evidence": "Requesting that onboarding begin in parallel with the final approval to meet a Q2 funding deadline."
+          }
+        ],
+        "mitigating_factors": [
+          {
+            "factor": "Investment committee documentation reported as provided (application's claim, not verified)",
+            "source_evidence": "Investment committee documentation provided."
+          },
+          {
+            "factor": "Client is a university endowment with a clearly stated institutional investment purpose and asset allocation",
+            "source_evidence": "University endowment seeking to allocate $320M across domestic equity, international equity, and alternative strategies"
+          }
+        ],
+        "missing_information": [
+          {
+            "item": "Signed board resolution authorizing the investment mandate and authorized signatories",
+            "status": "REPORTED_MISSING_OR_PENDING"
+          },
+          {
+            "item": "Constitutional/legal entity documents and confirmation of the endowment's legal status and governing body",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "List of authorized signatories and control persons with identification",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Source of endowment funds (donations, institutional assets) and the origin of the $320M",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Details of the investment committee documentation received",
+            "status": "NOT_STATED_IN_APPLICATION"
+          }
+        ],
+        "operational_complexity_notes": [
+          "Large AUM ($320M) across domestic equity, international equity and alternatives",
+          "Hedge fund allocation adds alternative-investment onboarding requirements",
+          "ESG exclusion requirements (fossil fuels, private prisons, tobacco) require custom investment restrictions",
+          "Q2 funding deadline creates timing pressure, treated as operational rather than evasive"
+        ],
+        "rationale": "The client is a university endowment with a stated institutional purpose and investment committee documentation reported as provided. The main indicators are the pending board resolution authorizing the mandate and the request to start onboarding before final approval, which need specific follow-up. No opacity, unsupported funds, or resistance to due diligence is stated; ESG restrictions, large AUM and the deadline are operational complexity.",
+        "compliance_review_required": true,
+        "suggested_next_steps": [
+          "Obtain the signed board resolution before any account activation or funding, and confirm authorized signatories",
+          "Collect entity constitutional documents and identify control persons and authorized signatories",
+          "Run sanctions, PEP and adverse-media screening in ComplianceOne on the entity and its principals",
+          "Confirm source of endowment assets and clarify what onboarding steps can proceed in parallel under firm policy"
+        ]
+      },
+      "onboarding_summary": {
+        "client_overview": "Brightpath University Endowment is an institutional client (new application, submitted 2026-01-10) seeking to allocate an estimated $320M across domestic equity, international equity and alternative strategies including a hedge fund allocation.",
+        "service_needs": [
+          "Domestic equity portfolio management",
+          "International equity portfolio management",
+          "Alternatives allocation, including hedge fund investments",
+          "Implementation of ESG exclusions (no fossil fuels, no private prisons, no tobacco)",
+          "Onboarding timed to meet a Q2 funding deadline"
+        ],
+        "onboarding_complexity": "HIGH",
+        "complexity_drivers": [
+          "Large estimated AUM of $320M spread across three strategy sleeves",
+          "Hedge fund allocation adds alternative-investment onboarding requirements",
+          "Custom ESG exclusion restrictions that must be documented and built into investment guidelines",
+          "Q2 funding deadline creates timing pressure",
+          "Board resolution unsigned, so authority and signatory documentation depends on a third-party governing body",
+          "Request to run onboarding in parallel with final client approval"
+        ],
+        "risk_level_acknowledged": "MEDIUM",
+        "risk_context": "Triage is MEDIUM with STANDARD review priority, and Compliance review is required. Account opening and funding must wait for the signed board resolution and Compliance's KYC decision; only non-binding preparation such as drafting guidelines and gathering documents can proceed in parallel.",
+        "documentation_or_review_gaps": [
+          "Signed board resolution authorizing the investment mandate and authorized signatories (reported pending)",
+          "Constitutional/legal entity documents and confirmation of legal status and governing body (not stated)",
+          "List of authorized signatories and control persons with identification (not stated)",
+          "Source of endowment funds and origin of the $320M (not stated)",
+          "Details of the investment committee documentation received (not stated; client's claim that it was provided is unverified)",
+          "Sanctions, PEP and adverse-media screening has not been recorded as performed"
+        ],
+        "next_actions": [
+          {
+            "action": "Request the signed board resolution, authorized signatory list and control person identification from the client, and track the signature timeline",
+            "suggested_owner": "RELATIONSHIP_MANAGER",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Collect entity constitutional/legal documents, source of endowment funds information, and details of the investment committee documentation provided",
+            "suggested_owner": "CLIENT_OPERATIONS",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Complete standard KYC review, including sanctions, PEP and adverse-media screening in ComplianceOne, and decide which onboarding steps may proceed in parallel and whether the Q2 timeline can be supported under firm policy",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Review hedge fund and alternatives onboarding requirements, including any subscription documents, and legal documentation needs",
+            "suggested_owner": "LEGAL",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Draft investment guidelines reflecting ESG exclusions (fossil fuels, private prisons, tobacco) and the equity/alternatives allocation as non-binding preparation, for client confirmation",
+            "suggested_owner": "PORTFOLIO_MANAGEMENT",
+            "blocks_account_opening": false
+          },
+          {
+            "action": "Gather any custom reporting expectations from the client and prepare reporting set-up for ESG exclusion monitoring",
+            "suggested_owner": "CLIENT_REPORTING",
+            "blocks_account_opening": false
+          }
+        ],
+        "summary_text": "Brightpath University Endowment is a new institutional client seeking to allocate about $320M across domestic equity, international equity and hedge fund alternatives, with ESG exclusions for fossil fuels, private prisons and tobacco. Onboarding complexity is high because of the size, alternatives, custom restrictions and the Q2 funding deadline. Compliance triage is MEDIUM with standard priority, driven mainly by the unsigned board resolution and the request to start before final approval. Account opening and funding wait for the signed resolution and Compliance's KYC review; only non-binding preparation can proceed meanwhile. The next step is to obtain the board resolution and entity documents while Compliance determines what can run in parallel."
+      },
+      "guardrails": {
+        "evidence_checks": [
+          {
+            "kind": "risk_factor",
+            "index": 0,
+            "factor": "Board resolution authorizing the mandate is unsigned (pending)",
+            "source_evidence": "Board resolution pending final signature.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "risk_factor",
+            "index": 1,
+            "factor": "Request to begin onboarding in parallel with final approval, tied to a funding deadline",
+            "source_evidence": "Requesting that onboarding begin in parallel with the final approval to meet a Q2 funding deadline.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 0,
+            "factor": "Investment committee documentation reported as provided (application's claim, not verified)",
+            "source_evidence": "Investment committee documentation provided.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 1,
+            "factor": "Client is a university endowment with a clearly stated institutional investment purpose and asset allocation",
+            "source_evidence": "University endowment seeking to allocate $320M across domestic equity, international equity, and alternative strategies",
+            "verified_in_source": true
+          }
+        ],
+        "unverified_evidence_count": 0,
+        "policy_flags": []
+      },
+      "warnings": [],
+      "errors": [],
+      "risk_assessment_sha256": "cf27141f954205a8d22a3bd93434f3c728fd623af78619440e6ed07f8b653ba5",
+      "summary_consumed_risk_sha256": "cf27141f954205a8d22a3bd93434f3c728fd623af78619440e6ed07f8b653ba5",
+      "llm_calls": [
+        {
+          "stage": "risk_assessment",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH3qg7Er2G7GL3YtkjL"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 267,
+          "output_tokens": 1016,
+          "cache_read_input_tokens": 3904,
+          "latency_ms": 7075
+        },
+        {
+          "stage": "onboarding_summary",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH4MaS6qpYWMuahBGb8"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 1458,
+          "output_tokens": 1410,
+          "cache_read_input_tokens": 2106,
+          "latency_ms": 9380
+        }
+      ],
+      "processed_at": "2026-11-03T03:23:11+00:00",
+      "prompt_versions": {
+        "risk_assessment": "risk-triage-v4",
+        "onboarding_summary": "onboarding-summary-v3"
+      },
+      "schema_version": "enriched-record-v1"
+    },
+    {
+      "application_id": "APP-2026-0309",
+      "source": {
+        "application_id": "APP-2026-0309",
+        "client_name": "Northern Lights Sovereign Wealth Fund",
+        "client_type": "Institutional",
+        "requested_services": "Multi-Asset Management",
+        "estimated_aum": "2000000000",
+        "submission_date": "01/14/2026",
+        "status": "New",
+        "description": "Large sovereign wealth fund seeking to allocate $2B across global equity, fixed income, and real asset strategies. Extensive due diligence documentation provided. The fund has its own compliance requirements and is requesting reciprocal KYC — they want to review our compliance practices as part of their due diligence on us. Requesting a dedicated onboarding team and weekly status calls. Largest potential new client relationship this quarter."
+      },
+      "processing_status": "COMPLETED",
+      "triage_risk_level": "LOW",
+      "review_priority": "STANDARD",
+      "routing": "STANDARD_KYC_QUEUE",
+      "compliance_review_required": true,
+      "human_review_status": "PENDING_HUMAN_REVIEW",
+      "advisory_notice": "AI-generated preliminary intake triage based only on the application text. No sanctions, watchlist, PEP or identity screening has been performed by this system. Final KYC/AML disposition is made by Crestview Compliance.",
+      "risk_assessment": {
+        "risk_level": "LOW",
+        "review_priority": "STANDARD",
+        "risk_factors": [],
+        "mitigating_factors": [
+          {
+            "factor": "Client reports providing extensive due diligence documentation (application's claim, not verified)",
+            "source_evidence": "Extensive due diligence documentation provided."
+          },
+          {
+            "factor": "Client is described as a sovereign wealth fund with its own compliance requirements",
+            "source_evidence": "The fund has its own compliance requirements"
+          }
+        ],
+        "missing_information": [
+          {
+            "item": "Beneficial ownership / governmental control and authorizing legal basis of the fund",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Authorized signatories and identity documents",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Source of funds for the $2B allocation",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Sponsoring jurisdiction and fund's regulatory or legal status",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Contents of the due diligence documentation package, to be reviewed by an analyst",
+            "status": "NOT_STATED_IN_APPLICATION"
+          }
+        ],
+        "operational_complexity_notes": [
+          "Large AUM allocation ($2B) across global equity, fixed income and real assets",
+          "Reciprocal KYC request: client wants to review the firm's compliance practices",
+          "Request for a dedicated onboarding team and weekly status calls",
+          "Commercial significance (largest potential new relationship this quarter) is not a compliance indicator, but should not accelerate or shorten KYC"
+        ],
+        "rationale": "The record describes a sovereign wealth fund with an extensive due diligence package reported as provided and a stated willingness to engage on compliance. No positive compliance risk indicators such as opacity, resistance to due diligence, pressure to bypass checks, or unexplained intermediaries are stated. Size, reciprocal due diligence and high-touch service requests are operational complexity, not risk. Sovereign status and government links have not been verified, and no screening has been run, so standard KYC with government-ownership and PEP considerations still applies.",
+        "compliance_review_required": true,
+        "suggested_next_steps": [
+          "Run sanctions, watchlist, PEP and adverse-media screening on the fund and its principals/signatories",
+          "Review the due diligence documentation provided and confirm the fund's sovereign status, legal basis and sponsoring government",
+          "Obtain source of funds information and authorized signatory identification",
+          "Route the reciprocal KYC request to the appropriate compliance contact without altering internal KYC timelines"
+        ]
+      },
+      "onboarding_summary": {
+        "client_overview": "Northern Lights Sovereign Wealth Fund is an institutional applicant, described as a sovereign wealth fund, seeking to allocate an estimated $2B to Crestview. The application was submitted 2026-01-14 and is at intake status New.",
+        "service_needs": [
+          "Multi-asset management of an estimated $2B across global equity, fixed income and real asset strategies",
+          "Dedicated onboarding team",
+          "Weekly status calls during onboarding",
+          "Reciprocal KYC: client wants to review Crestview's compliance practices as part of its own due diligence"
+        ],
+        "onboarding_complexity": "MEDIUM",
+        "complexity_drivers": [
+          "Large $2B allocation spanning three asset class strategies including real assets",
+          "Reciprocal KYC request requires coordination with the client's compliance team",
+          "Request for a dedicated onboarding team and weekly status calls adds staffing and communication workload",
+          "Number of accounts, legal entities and any investment restrictions or funding phasing are not stated in the application",
+          "Commercial visibility of the relationship raises coordination demands but must not affect KYC timelines"
+        ],
+        "risk_level_acknowledged": "LOW",
+        "risk_context": "Triage is LOW with STANDARD review priority, but the client still requires standard KYC review by Compliance, including screening and government-ownership/PEP considerations. Account opening and funding wait for Compliance to complete that review; only non-binding preparation such as onboarding team setup and documentation collection can proceed in parallel.",
+        "documentation_or_review_gaps": [
+          "Beneficial ownership, governmental control and authorizing legal basis of the fund not stated",
+          "Authorized signatories and identity documents not stated",
+          "Source of funds for the $2B allocation not stated",
+          "Sponsoring jurisdiction and the fund's regulatory or legal status not stated",
+          "Contents of the due diligence documentation package are unreviewed; the claim that it is extensive is unverified",
+          "Sovereign status is the application's claim and has not been verified; no screening has been run"
+        ],
+        "next_actions": [
+          {
+            "action": "Run sanctions, watchlist, PEP and adverse-media screening on the fund and its principals/signatories, and complete standard KYC review including government-ownership considerations",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Review the due diligence documentation package provided and confirm the fund's sovereign status, legal basis and sponsoring government",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Request source of funds information and authorized signatory identification from the client",
+            "suggested_owner": "CLIENT_OPERATIONS",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Route the reciprocal KYC request to the appropriate compliance contact, without altering internal KYC timelines",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": false
+          },
+          {
+            "action": "Confirm account structure, legal entities, investment restrictions and funding approach with the client, and prepare the dedicated onboarding team and weekly call cadence as non-binding preparation",
+            "suggested_owner": "RELATIONSHIP_MANAGER",
+            "blocks_account_opening": false
+          },
+          {
+            "action": "Review the investment mandate across equity, fixed income and real assets for any portfolio setup needs once the structure is confirmed",
+            "suggested_owner": "PORTFOLIO_MANAGEMENT",
+            "blocks_account_opening": false
+          }
+        ],
+        "summary_text": "Northern Lights Sovereign Wealth Fund is an institutional applicant seeking multi-asset management of about $2B across global equity, fixed income and real assets. Onboarding complexity is MEDIUM, driven by the allocation size, a reciprocal KYC request, and demands for a dedicated team and weekly calls. Compliance triage is LOW with standard review priority, but standard KYC is still required and nothing has been verified or screened yet. Account opening and funding wait for Compliance review; meanwhile, operations can request source of funds and signatory documents and prepare the onboarding team. The reciprocal KYC request should go to Compliance without changing KYC timelines."
+      },
+      "guardrails": {
+        "evidence_checks": [
+          {
+            "kind": "mitigating_factor",
+            "index": 0,
+            "factor": "Client reports providing extensive due diligence documentation (application's claim, not verified)",
+            "source_evidence": "Extensive due diligence documentation provided.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 1,
+            "factor": "Client is described as a sovereign wealth fund with its own compliance requirements",
+            "source_evidence": "The fund has its own compliance requirements",
+            "verified_in_source": true
+          }
+        ],
+        "unverified_evidence_count": 0,
+        "policy_flags": []
+      },
+      "warnings": [],
+      "errors": [],
+      "risk_assessment_sha256": "e6d82d7c3fdcd3960df36e4e8e8d0ac687d3c2f8654f92a9b7105a9a851ec916",
+      "summary_consumed_risk_sha256": "e6d82d7c3fdcd3960df36e4e8e8d0ac687d3c2f8654f92a9b7105a9a851ec916",
+      "llm_calls": [
+        {
+          "stage": "risk_assessment",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH3qxxvHMmGxGEMywfp"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 277,
+          "output_tokens": 861,
+          "cache_read_input_tokens": 3904,
+          "latency_ms": 6506
+        },
+        {
+          "stage": "onboarding_summary",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH4KCKYu2CXkWk5Phsv"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 1280,
+          "output_tokens": 1360,
+          "cache_read_input_tokens": 2106,
+          "latency_ms": 8893
+        }
+      ],
+      "processed_at": "2026-11-03T03:23:10+00:00",
+      "prompt_versions": {
+        "risk_assessment": "risk-triage-v4",
+        "onboarding_summary": "onboarding-summary-v3"
+      },
+      "schema_version": "enriched-record-v1"
+    },
+    {
+      "application_id": "APP-2026-0313",
+      "source": {
+        "application_id": "APP-2026-0313",
+        "client_name": "Robert and Diane Mercer-Hastings",
+        "client_type": "High-Net-Worth Individual",
+        "requested_services": "Wealth Management and Estate Planning",
+        "estimated_aum": "67000000",
+        "submission_date": "01/18/2026",
+        "status": "New",
+        "description": "Husband and wife — he is CEO of a publicly traded healthcare company; she is a partner at a law firm. Assets include concentrated stock position ($40M in employer stock), real estate portfolio, and cash from recent stock sales. Seeking diversification strategy for the concentrated position, comprehensive wealth management, and estate planning coordination. Application notes potential 10b5-1 plan involvement. Requires coordination with corporate counsel on trading window restrictions."
+      },
+      "processing_status": "COMPLETED",
+      "triage_risk_level": "MEDIUM",
+      "review_priority": "STANDARD",
+      "routing": "STANDARD_KYC_QUEUE",
+      "compliance_review_required": true,
+      "human_review_status": "PENDING_HUMAN_REVIEW",
+      "advisory_notice": "AI-generated preliminary intake triage based only on the application text. No sanctions, watchlist, PEP or identity screening has been performed by this system. Final KYC/AML disposition is made by Crestview Compliance.",
+      "risk_assessment": {
+        "risk_level": "MEDIUM",
+        "review_priority": "STANDARD",
+        "risk_factors": [
+          {
+            "factor": "Corporate insider with concentrated employer stock and trading restrictions",
+            "category": "TRADING_RESTRICTION_OR_INSIDER_STATUS",
+            "severity": "MEDIUM",
+            "source_evidence": "he is CEO of a publicly traded healthcare company"
+          },
+          {
+            "factor": "Trading window restrictions and possible 10b5-1 plan require legal coordination",
+            "category": "TRADING_RESTRICTION_OR_INSIDER_STATUS",
+            "severity": "MEDIUM",
+            "source_evidence": "Requires coordination with corporate counsel on trading window restrictions."
+          },
+          {
+            "factor": "Source of funds includes recent stock sales that need documentary support",
+            "category": "SOURCE_OF_FUNDS_OR_WEALTH",
+            "severity": "LOW",
+            "source_evidence": "cash from recent stock sales"
+          }
+        ],
+        "mitigating_factors": [
+          {
+            "factor": "Husband's employer is a publicly traded company, which is subject to public disclosure",
+            "source_evidence": "CEO of a publicly traded healthcare company"
+          },
+          {
+            "factor": "Wealth sources described are identifiable (employer stock, real estate, stock sale proceeds) and the purpose of the request is clearly stated",
+            "source_evidence": "Seeking diversification strategy for the concentrated position, comprehensive wealth management, and estate planning coordination."
+          }
+        ],
+        "missing_information": [
+          {
+            "item": "Government-issued identity documents for both individuals",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Source of wealth documentation, including dates and proceeds of recent stock sales",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Details of any 10b5-1 plan and the corporate counsel contact",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Details of the real estate portfolio, including ownership structure",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "PEP and sanctions screening status for both individuals",
+            "status": "NOT_STATED_IN_APPLICATION"
+          }
+        ],
+        "operational_complexity_notes": [
+          "Large AUM of approximately $67M",
+          "Estate planning coordination alongside wealth management",
+          "Coordination with corporate counsel on trading windows",
+          "Possible 10b5-1 plan involvement",
+          "Spouse is a law firm partner, which may involve additional professional coordination"
+        ],
+        "rationale": "The husband is CEO of a publicly traded company with $40M of employer stock, which creates insider trading-restriction and legal-coordination needs rather than any allegation of misconduct. The record states no opacity, nominee structures, intermediaries, resistance to due diligence or pressure to rush. Routine KYC and source-of-wealth documentation are not mentioned, so these are gaps to follow up on, and the insider status warrants specific follow-up.",
+        "compliance_review_required": true,
+        "suggested_next_steps": [
+          "Run sanctions, PEP and adverse-media screening in ComplianceOne for both individuals",
+          "Collect identity documents and source-of-wealth evidence, including records of recent stock sales",
+          "Coordinate with the client's corporate counsel on trading windows, restricted-list handling and any 10b5-1 plan",
+          "Document the real estate holdings and any ownership structures for beneficial ownership review"
+        ]
+      },
+      "onboarding_summary": {
+        "client_overview": "Robert and Diane Mercer-Hastings are a married high-net-worth couple with approximately $67M in estimated AUM. Robert is CEO of a publicly traded healthcare company and Diane is a law firm partner.",
+        "service_needs": [
+          "Diversification strategy for a $40M concentrated employer stock position",
+          "Comprehensive wealth management",
+          "Estate planning coordination",
+          "Coordination with the client's corporate counsel on trading window restrictions and a potential 10b5-1 plan"
+        ],
+        "onboarding_complexity": "MEDIUM",
+        "complexity_drivers": [
+          "Large AUM of approximately $67M across employer stock, a real estate portfolio and cash",
+          "Estate planning coordination alongside wealth management",
+          "External coordination with corporate counsel on trading windows",
+          "Possible 10b5-1 plan involvement affecting how the concentrated position can be traded",
+          "Real estate portfolio with ownership structure not yet described",
+          "Spouse is a law firm partner, which may add professional coordination"
+        ],
+        "risk_level_acknowledged": "MEDIUM",
+        "risk_context": "The triage is MEDIUM with STANDARD review priority, driven by Robert's insider status and trading restrictions. Compliance must still complete standard KYC review, so account opening and funding wait for that human review, while document collection and legal coordination can proceed in parallel.",
+        "documentation_or_review_gaps": [
+          "Government-issued identity documents for both individuals not stated in application",
+          "Source of wealth documentation, including dates and proceeds of recent stock sales, not stated",
+          "Details of any 10b5-1 plan and the corporate counsel contact not stated",
+          "Real estate portfolio details and ownership structure not stated",
+          "PEP and sanctions screening status for both individuals not stated"
+        ],
+        "next_actions": [
+          {
+            "action": "Run sanctions, PEP and adverse-media screening for both individuals and complete standard KYC review",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Request identity documents for both clients and source-of-wealth evidence, including records of recent stock sales",
+            "suggested_owner": "CLIENT_OPERATIONS",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Obtain real estate holdings details and ownership structures for beneficial ownership review",
+            "suggested_owner": "CLIENT_OPERATIONS",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Obtain corporate counsel contact and details of any 10b5-1 plan, and coordinate on trading windows and restricted-list handling",
+            "suggested_owner": "LEGAL",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Prepare a non-binding outline of the diversification and estate planning approach, with no trading or funding until Compliance review is complete",
+            "suggested_owner": "PORTFOLIO_MANAGEMENT",
+            "blocks_account_opening": false
+          },
+          {
+            "action": "Update the clients on the documents needed and the review steps ahead",
+            "suggested_owner": "RELATIONSHIP_MANAGER",
+            "blocks_account_opening": false
+          }
+        ],
+        "summary_text": "Robert and Diane Mercer-Hastings are a high-net-worth couple with about $67M in estimated AUM, including $40M in employer stock; Robert is CEO of a public healthcare company. They want diversification of the concentrated position, wealth management and estate planning coordination. Onboarding complexity is medium because of the size of the assets, estate planning, corporate counsel coordination and a possible 10b5-1 plan. The compliance triage is MEDIUM with standard review priority, and Compliance must complete KYC review before account opening or funding. Next step: start screening and collect identity, source-of-wealth, real estate and 10b5-1 documentation in parallel."
+      },
+      "guardrails": {
+        "evidence_checks": [
+          {
+            "kind": "risk_factor",
+            "index": 0,
+            "factor": "Corporate insider with concentrated employer stock and trading restrictions",
+            "source_evidence": "he is CEO of a publicly traded healthcare company",
+            "verified_in_source": true
+          },
+          {
+            "kind": "risk_factor",
+            "index": 1,
+            "factor": "Trading window restrictions and possible 10b5-1 plan require legal coordination",
+            "source_evidence": "Requires coordination with corporate counsel on trading window restrictions.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "risk_factor",
+            "index": 2,
+            "factor": "Source of funds includes recent stock sales that need documentary support",
+            "source_evidence": "cash from recent stock sales",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 0,
+            "factor": "Husband's employer is a publicly traded company, which is subject to public disclosure",
+            "source_evidence": "CEO of a publicly traded healthcare company",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 1,
+            "factor": "Wealth sources described are identifiable (employer stock, real estate, stock sale proceeds) and the purpose of the request is clearly stated",
+            "source_evidence": "Seeking diversification strategy for the concentrated position, comprehensive wealth management, and estate planning coordination.",
+            "verified_in_source": true
+          }
+        ],
+        "unverified_evidence_count": 0,
+        "policy_flags": []
+      },
+      "warnings": [],
+      "errors": [],
+      "risk_assessment_sha256": "9dd5108b1608ac2dfb1fa5c75cb58c210c857c5d34c53bf8cab7d8a35a71467c",
+      "summary_consumed_risk_sha256": "9dd5108b1608ac2dfb1fa5c75cb58c210c857c5d34c53bf8cab7d8a35a71467c",
+      "llm_calls": [
+        {
+          "stage": "risk_assessment",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH3qqmnz1bpeXhXzjNZ"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 302,
+          "output_tokens": 1125,
+          "cache_read_input_tokens": 3904,
+          "latency_ms": 7660
+        },
+        {
+          "stage": "onboarding_summary",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH4Q7zKiGPJ19MdM6he"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 1620,
+          "output_tokens": 1227,
+          "cache_read_input_tokens": 2106,
+          "latency_ms": 7769
+        }
+      ],
+      "processed_at": "2026-11-03T03:23:10+00:00",
+      "prompt_versions": {
+        "risk_assessment": "risk-triage-v4",
+        "onboarding_summary": "onboarding-summary-v3"
+      },
+      "schema_version": "enriched-record-v1"
+    },
+    {
+      "application_id": "APP-2026-0314",
+      "source": {
+        "application_id": "APP-2026-0314",
+        "client_name": "Global Impact Partners Foundation",
+        "client_type": "Institutional",
+        "requested_services": "Impact Investing and ESG",
+        "estimated_aum": "95000000",
+        "submission_date": "01/19/2026",
+        "status": "New",
+        "description": "Private foundation focused on climate and social justice seeking $95M allocation to impact investment strategies. Requires detailed impact reporting aligned with UN Sustainable Development Goals. Board has approved investment but requires quarterly narrative reports on measurable outcomes in addition to financial performance. Foundation is evaluating three firms simultaneously — onboarding speed and reporting capabilities are key differentiators in their decision."
+      },
+      "processing_status": "COMPLETED",
+      "triage_risk_level": "LOW",
+      "review_priority": "STANDARD",
+      "routing": "STANDARD_KYC_QUEUE",
+      "compliance_review_required": true,
+      "human_review_status": "PENDING_HUMAN_REVIEW",
+      "advisory_notice": "AI-generated preliminary intake triage based only on the application text. No sanctions, watchlist, PEP or identity screening has been performed by this system. Final KYC/AML disposition is made by Crestview Compliance.",
+      "risk_assessment": {
+        "risk_level": "LOW",
+        "review_priority": "STANDARD",
+        "risk_factors": [],
+        "mitigating_factors": [
+          {
+            "factor": "Board has approved the investment, indicating governance involvement in the decision",
+            "source_evidence": "Board has approved investment but requires quarterly narrative reports on measurable outcomes in addition to financial performance."
+          },
+          {
+            "factor": "Stated charitable purpose and investment objective are clear and consistent with the requested services",
+            "source_evidence": "Private foundation focused on climate and social justice seeking $95M allocation to impact investment strategies."
+          }
+        ],
+        "missing_information": [
+          {
+            "item": "Beneficial ownership / controlling persons, trustees and board members of the foundation",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Foundation formation and registration documents, jurisdiction of establishment and tax status",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Source of the foundation's assets (endowment or donor funding) and source of the $95M allocation",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Authorized signatory list and board resolution evidencing the investment approval",
+            "status": "NOT_STATED_IN_APPLICATION"
+          },
+          {
+            "item": "Identity documents for signatories and key principals",
+            "status": "NOT_STATED_IN_APPLICATION"
+          }
+        ],
+        "operational_complexity_notes": [
+          "Large allocation ($95M) is a matter of scale, not a compliance indicator by itself.",
+          "Detailed impact reporting aligned with UN Sustainable Development Goals and quarterly narrative outcome reports are custom reporting requirements.",
+          "Foundation is evaluating three firms simultaneously, so onboarding speed is a commercial consideration; no request to bypass due diligence is stated."
+        ],
+        "rationale": "The record describes a private foundation with a clear charitable mission, a board-approved allocation and custom reporting needs, with no stated indicators of opaque ownership, unsupported funds, intermediaries, PEP exposure or resistance to due diligence. Competitive timing and large size are operational factors, not compliance risk. Standard KYC applies, with routine items such as controlling persons, source of assets and formation documents not yet stated in the record.",
+        "compliance_review_required": true,
+        "suggested_next_steps": [
+          "Collect foundation formation documents, jurisdiction and tax status, and identify trustees, board members and controlling persons.",
+          "Obtain the board resolution and authorized signatory list, and the source of the foundation's assets and the $95M allocation.",
+          "Run sanctions, PEP and adverse-media screening in ComplianceOne for the foundation and its principals.",
+          "Complete standard KYC review without compressing steps to meet the client's competitive timeline."
+        ]
+      },
+      "onboarding_summary": {
+        "client_overview": "Global Impact Partners Foundation is an institutional private foundation focused on climate and social justice, with an estimated $95M to allocate to impact investment strategies. The application was submitted 2026-01-19 and intake status is New.",
+        "service_needs": [
+          "Impact investing and ESG mandate for an estimated $95M allocation",
+          "Detailed impact reporting aligned with the UN Sustainable Development Goals",
+          "Quarterly narrative reports on measurable outcomes in addition to financial performance reporting"
+        ],
+        "onboarding_complexity": "MEDIUM",
+        "complexity_drivers": [
+          "Custom impact reporting aligned with UN SDGs that goes beyond standard financial reporting",
+          "Quarterly narrative outcome reports required in addition to financial reports",
+          "Large allocation ($95M) that will need careful implementation planning",
+          "Client is evaluating three firms at once, so onboarding speed and reporting capability are decision factors",
+          "Single institutional client with no stated multiple entities, restrictions or phased funding"
+        ],
+        "risk_level_acknowledged": "LOW",
+        "risk_context": "The triage is LOW with STANDARD review priority, but standard KYC review by Compliance is still required, so account opening and funding wait for that review. Reporting design and mandate preparation can proceed in parallel as non-binding work.",
+        "documentation_or_review_gaps": [
+          "Beneficial ownership / controlling persons, trustees and board members not stated",
+          "Formation and registration documents, jurisdiction of establishment and tax status not stated",
+          "Source of the foundation's assets and source of the $95M allocation not stated",
+          "Authorized signatory list and board resolution evidencing the investment approval not stated",
+          "Identity documents for signatories and key principals not stated"
+        ],
+        "next_actions": [
+          {
+            "action": "Request formation documents, jurisdiction and tax status, and the list of trustees, board members and controlling persons from the client",
+            "suggested_owner": "CLIENT_OPERATIONS",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Request the board resolution, authorized signatory list, signatory identity documents, and the source of the foundation's assets and the $95M allocation",
+            "suggested_owner": "CLIENT_OPERATIONS",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Run sanctions, PEP and adverse-media screening in ComplianceOne for the foundation and its principals, and complete standard KYC review",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": true
+          },
+          {
+            "action": "Route the client's onboarding-speed expectations to Compliance for a view on timeline; do not commit to dates or compress KYC steps before that",
+            "suggested_owner": "COMPLIANCE",
+            "blocks_account_opening": false
+          },
+          {
+            "action": "Scope the UN SDG-aligned impact reporting and quarterly narrative outcome report format so it can be presented to the client",
+            "suggested_owner": "CLIENT_REPORTING",
+            "blocks_account_opening": false
+          },
+          {
+            "action": "Prepare non-binding implementation and impact strategy discussion materials, and keep the client informed of the information needed",
+            "suggested_owner": "RELATIONSHIP_MANAGER",
+            "blocks_account_opening": false
+          }
+        ],
+        "summary_text": "Global Impact Partners Foundation is a private foundation seeking to allocate about $95M to impact investing and ESG strategies, with SDG-aligned impact reporting and quarterly narrative outcome reports. Onboarding complexity is medium, driven mainly by the custom reporting and the size of the allocation. The compliance triage is LOW with standard review priority, but standard KYC by Compliance is still required and account opening and funding wait for it. Key information such as controlling persons, formation documents, source of assets and signatory authority has not yet been provided. Next step is to request those items while Compliance starts screening and Reporting scopes the impact reports; any timeline questions go to Compliance."
+      },
+      "guardrails": {
+        "evidence_checks": [
+          {
+            "kind": "mitigating_factor",
+            "index": 0,
+            "factor": "Board has approved the investment, indicating governance involvement in the decision",
+            "source_evidence": "Board has approved investment but requires quarterly narrative reports on measurable outcomes in addition to financial performance.",
+            "verified_in_source": true
+          },
+          {
+            "kind": "mitigating_factor",
+            "index": 1,
+            "factor": "Stated charitable purpose and investment objective are clear and consistent with the requested services",
+            "source_evidence": "Private foundation focused on climate and social justice seeking $95M allocation to impact investment strategies.",
+            "verified_in_source": true
+          }
+        ],
+        "unverified_evidence_count": 0,
+        "policy_flags": []
+      },
+      "warnings": [],
+      "errors": [],
+      "risk_assessment_sha256": "eb5ceac249d210a4cda38ea3ee5a567e6dd4068841df75ae775f3f5ab380e2c3",
+      "summary_consumed_risk_sha256": "eb5ceac249d210a4cda38ea3ee5a567e6dd4068841df75ae775f3f5ab380e2c3",
+      "llm_calls": [
+        {
+          "stage": "risk_assessment",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH3rBNERtmNi3WowjAi"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 273,
+          "output_tokens": 910,
+          "cache_read_input_tokens": 3904,
+          "latency_ms": 6679
+        },
+        {
+          "stage": "onboarding_summary",
+          "model_requested": "claude-sonnet-5-5",
+          "model_responded": "claude-sonnet-5-5",
+          "request_ids": [
+            "req_011CgfH4L1vfamhj77hXsP1w"
+          ],
+          "attempts": 1,
+          "stop_reason": "end_turn",
+          "input_tokens": 1322,
+          "output_tokens": 1272,
+          "cache_read_input_tokens": 2106,
+          "latency_ms": 8718
+        }
+      ],
+      "processed_at": "2026-11-03T03:23:10+00:00",
+      "prompt_versions": {
+        "risk_assessment": "risk-triage-v4",
+        "onboarding_summary": "onboarding-summary-v3"
+      },
+      "schema_version": "enriched-record-v1"
+    }
+  ]
+}
