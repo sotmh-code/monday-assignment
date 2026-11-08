@@ -112,7 +112,7 @@ The board check needs configured credentials. **Don't run board setup or live sy
 
 > "The input is eight CSV fields, including the client's description—not PDFs. This function runs Claude for an advisory risk assessment, then Python checks the result and routes the case. A second Claude call receives the original application and Stage 1 risk JSON to produce an Operations summary.
 >
-> "Both results are saved together. A separate program publishes them to monday.com. If risk assessment fails, the case goes to manual triage; if the summary fails, we retain the risk result and record the failure."
+> "In **src/main.py**, the **live()** function calls **run_batch()**, then **write_outputs()** saves the results in **output/enriched_applications.json**. Publishing is a separate command, **python -m src.monday_sync**. Its **main()** function reads that saved file and calls **MondayClient.upsert()** in **src/monday_client.py** to create or update board items. If Stage 1 fails, the saved record is marked for manual triage; if Stage 2 fails, the saved record keeps the risk result and records the failure. Neither failure automatically triggers the publisher."
 
 ### 4:35–5:25 — Actual prompts and JSON contracts
 
@@ -174,11 +174,11 @@ if any(f.category == RiskCategory.EMBEDDED_INSTRUCTION for f in risk.risk_factor
 
 ## 8:20–9:10 — Show monday.com GraphQL code
 
-**SHOW:** Cmd+P **src/monday_client.py**; Cmd+F **def upsert** (Application ID lookup then create/update); next Cmd+F **def column_values** (JSON-to-board field mapping).
+**SHOW:** Cmd+P **src/monday_sync.py**, Cmd+F **def main**; point to **read_run_output(args.input)** and **client.upsert(board_id, rec)**. Then Cmd+P **src/monday_client.py**, Cmd+F **def upsert** (Application ID lookup then create/update); Cmd+F **def column_values** (JSON-to-board field mapping).
 
 **SAY:**
 
-> "This is the actual monday.com write path. It maps our enriched JSON to board columns and checks Application ID before create-or-update, so sequential reruns normally update the same case.
+> "This is the actual publishing code. Running **python -m src.monday_sync** executes **main()**, which reads **output/enriched_applications.json** and calls **MondayClient.upsert()** for each saved application. That function maps fields to board columns and checks Application ID before creating or updating an item. Sequential reruns normally update the same case.
 >
 > "The Compliance Decision column is created as Pending Human Review and deliberately omitted from subsequent AI updates. That prevents this writer from overwriting a person's decision."
 
