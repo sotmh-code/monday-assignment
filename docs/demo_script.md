@@ -34,7 +34,6 @@ Open `output/crestview_review_dashboard.html`. For adversarial tests, open `outp
 ---
 
 ## 0:00–1:15 — Show the real workflow
-
 **Show:** monday.com board with 15 applications and the risk, complexity, routing, status and compliance columns.
 
 **Say:** “Here's the result of using AI to accelerate intake without creating another inbox. The pipeline processed 15 synthetic applications, then synchronized findings to the team's monday.com board. Operations can identify the next actions, Compliance can see escalation candidates, and nobody has been cleared by AI.”
@@ -42,7 +41,6 @@ Open `output/crestview_review_dashboard.html`. For adversarial tests, open `outp
 **Avoid:** Claiming the POC includes working Salesforce, ClientHub, SharePoint, Outlook or ComplianceOne connections; these belong to the proposed six-month rollout. Likewise, suggested owners are text in `Next Actions`, not proof of actual monday.com assignee automation.
 
 ## 1:15–3:30 — Compare three cases: risk is not complexity
-
 Use board search for:
 
 - **Greenfield State Pension Fund — `APP-2026-0301`:** **Low** advisory risk / **Standard** priority / **Medium** complexity / **Standard KYC Queue**. Normal human KYC still applies.
@@ -54,7 +52,6 @@ Use board search for:
 The labels above match the saved `output/monday_payloads.json`. If your live board differs, identify the current values instead.
 
 ## 3:30–5:40 — Show Stage 1 informing Stage 2
-
 Stay on **Apex**.
 
 **Stage 1 — AI triage:** Show **AI Risk Triage (advisory)**, **Review Priority**, **Risk Rationale & Evidence**, **Gaps / Blockers**, **Routing**.
@@ -68,7 +65,6 @@ Stay on **Apex**.
 **Do not show SHA-256 comparisons.** They belong to test/audit lineage, not the customer workflow.
 
 ## 5:40–7:50 — Demonstrate guardrails and human ownership
-
 **Show:** Source quotes in Apex's **Risk Rationale & Evidence**, its **Pending Human Review** decision, and the **Pipeline Status** / **Routing** columns.
 
 **Say:** “We don't rely on the model to mark its own homework. There are checks before, at, and after each model call. If input is invalid, evidence is unverified or an output claims a client has been cleared, we expose that issue and route it to human review rather than silently treating the case as low risk.”
@@ -88,7 +84,6 @@ Stay on **Apex**.
 **Optional red-team example:** Present the recorded offline adversarial case `APP-2026-0901` (injected instruction) or `APP-2026-0903` (blank invalid description). Do **not** sync adversarial cases into the client demo board.
 
 ## 7:50–9:10 — Why monday.com, not another AI dashboard?
-
 **Show:** The board's **Routing**, **Gaps / Blockers**, **Next Actions** and **Compliance Decision** columns.
 
 **Say:** “monday.com is the work surface. Our GraphQL adapter maps structured findings into board columns and upserts by Application ID, avoiding duplicates on reruns. Crucially, it does not overwrite a previously recorded human Compliance Decision. Production rollout adds approved system integrations, ownership automation, SLAs and monitoring.”
@@ -96,19 +91,15 @@ Stay on **Apex**.
 **Be precise:** The source repository documents live board item creation. It does not prove live enterprise data connectors, fully automated status transitions or access-controlled reviewer approvals.
 
 ## 9:10–10:45 — Technical validation (brief, or on request)
-
 **Say:** “This is a maintainable Python system: two Claude calls per valid case, strongly typed results, evidence checks, explicit failure states and isolated monday.com GraphQL writes. The recorded full run reports **15/15 completed**, **61/61 source quotations matched** and **30/30 internal evaluation checks**. These are small synthetic development metrics, not production risk-prediction accuracy.”
 
 Show code only if the panel wants it: `src/pipeline.py`, `src/guardrails.py`, `src/monday_client.py`, `output/evaluation_report_sample.md`. Run `pytest` before the session; the previously reported 86 tests predate this feature branch.
 
 ## 10:45–12:00 — Close and transition to the roadmap
-
 **Say:** “The product outcome isn't an AI risk score—it is an evidence-linked recommendation that immediately becomes a visible next action, with human decisions preserved. The six-month pilot should measure whether we reduce manual touches and cycle time without weakening Compliance oversight. The 23-to-5-business-day objective remains a target, not a result of these 15 synthetic cases.”
 
 ---
-
 ## Technical Q&A cheat sheet
-
 - **Actual monday.com write?** `output/monday_sync_report.json` records 15 successful creations on board `5032266463`. Cross-check visually with the live board.
 - **Stage 1 and Stage 2 files?** Combined canonical `output/enriched_applications.json`; optional `output/risk_assessments.json` and `output/onboarding_summaries.json` exported by `src.report`.
 - **What is `<risk_triage>`?** The Stage 2 prompt section enclosing Stage 1 JSON. Not a file, agent or folder.
