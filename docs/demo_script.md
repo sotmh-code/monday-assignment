@@ -22,23 +22,37 @@
 
 No dedicated seven-guardrail recitation or second “why monday.com?” lecture; those are addressed where they naturally matter. Detailed control coverage remains in Q&A.
 
-## Preflight — prepare views before the panel arrives
+## Before you present — exact file map (VS Code on Mac)
 
-1. **Board:** Confirm 15 items, including Greenfield APP-2026-0301, Apex APP-2026-0303 and Heritage APP-2026-0310. Make Apex's Risk Rationale & Evidence, Gaps / Blockers, AI Onboarding Summary, Next Actions, Routing and Compliance Decision fields easy to open.
-2. **VS Code tabs in order:** src/pipeline.py at process_application() and route_for(); src/risk_assessment.py at RISK_SYSTEM_PROMPT; src/onboarding_summary.py at SUMMARY_SYSTEM_PROMPT and summarize(); src/guardrails.py at evidence_in_source() and check_evidence(); src/monday_client.py at column_values() and upsert().
-3. **Evidence tabs:** ai_development_log.md §3.5; output/evaluation_report_sample.md; recorded adversarial case APP-2026-0901. Don't sync adversarial cases to the board.
-4. **Run tests in advance**, not on stage. Check monday.com board schema only with working credentials. Read-only demo_trace replays existing JSON and makes no network requests. It is not a live Claude run.
+Open the repository folder **monday-assignment** in VS Code and switch to branch **feature/customer-review-demo**. To find any file below, press **Cmd+P**, paste the **exact path** in the middle column, press **Return**. To locate a function inside that file, press **Cmd+F** and type the search phrase. **No prior code familiarity required.**
+
+| What to show | Exact repository path | Search within file |
+|---|---|---|
+| Two model calls and error handling | **src/pipeline.py** | **def process_application** |
+| Stage 1's actual system prompt | **src/risk_assessment.py** | **RISK_SYSTEM_PROMPT =** |
+| Stage 2's actual system prompt | **src/onboarding_summary.py** | **SUMMARY_SYSTEM_PROMPT =** |
+| How Stage 1 is passed to Stage 2 | **src/onboarding_summary.py** | **def summarize** |
+| Both output JSON contracts (if asked) | **src/schemas.py** | **class RiskAssessment** and **class OnboardingSummary** |
+| Verbatim quote checking | **src/guardrails.py** | **def check_evidence** |
+| Prompt changes and injection — **ready to display** | **docs/demo_evidence.md** | Open Markdown preview with **Cmd+Shift+V** |
+| Actual routing rule for injection | **src/pipeline.py** | **def route_for** |
+| monday.com API integration | **src/monday_client.py** | **def upsert** and **def column_values** |
+| Original fictional CSV input | **crestview_client_applications.csv** | Search **APP-2026-0303** |
+| Saved enriched result (not live inference) | **output/enriched_applications.json** | Search **APP-2026-0303** |
+| Original saved injection test (not on board) | **output/adversarial/enriched_applications.json** | Search **APP-2026-0901** |
+
+**Prepare three windows:** monday.com board; VS Code code tabs; VS Code preview of **docs/demo_evidence.md**. For the recorded prompt and injection examples, show **that one preview page**, not ai_development_log.md or a giant JSON file.
+
+**Before the call**, verify board 5032266463 contains Greenfield **APP-2026-0301**, Apex **APP-2026-0303** and Heritage **APP-2026-0310**. Have Apex's Risk Rationale & Evidence, Gaps / Blockers, AI Onboarding Summary, Next Actions and Compliance Decision easy to open.
 
 ~~~bash
 git switch feature/customer-review-demo
 git pull
 python -m pytest -q
 python -m src.monday_sync --check
-python -m src.demo_trace --application-id APP-2026-0303
-python -m src.demo_trace --input output/adversarial/enriched_applications.json --application-id APP-2026-0901
 ~~~
 
-If the live board is inaccessible: run python -m src.report --input output/enriched_applications.json and open output/crestview_review_dashboard.html. The fallback is read-only and offline.
+The board check needs configured credentials. **Don't run board setup or live sync during the interview.** If the board fails to load, run **python -m src.report --input output/enriched_applications.json** and open **output/crestview_review_dashboard.html** (saved, offline results).
 
 ---
 
@@ -56,19 +70,17 @@ If the live board is inaccessible: run python -m src.report --input output/enric
 
 ## 1:00–2:40 — Three cases, one important distinction
 
-**Show Greenfield (20 seconds):** APP-2026-0301. LOW advisory risk, STANDARD priority, MEDIUM operational complexity, STANDARD_KYC_QUEUE. Human KYC is still required.
+**On the monday.com board, search these Application IDs in order.**
 
-**Show Apex (60 seconds):** APP-2026-0303. HIGH advisory risk, ESCALATE priority, MEDIUM complexity, COMPLIANCE_ESCALATION. Open Risk Rationale & Evidence: the description raises layered ownership, apparent nominee directors, source-of-funds gaps and reluctance to provide details. These are statements within the supplied application, not independently verified facts.
-
-**Show Heritage (20 seconds):** APP-2026-0310. LOW advisory risk, HIGH operational complexity.
+- **Greenfield — APP-2026-0301 (20 sec):** LOW risk / STANDARD priority / MEDIUM complexity. Standard human KYC still applies.
+- **Apex — APP-2026-0303 (60 sec):** HIGH risk / ESCALATE / MEDIUM complexity. Open **Risk Rationale & Evidence**. The intake text describes layered ownership, apparent nominee directors, unsupported source of funds and resistance to document requests. Those are reported claims, not independently confirmed findings.
+- **Heritage — APP-2026-0310 (20 sec):** LOW advisory risk / HIGH complexity. **14 family members, approximately 22 accounts, trusts, LLCs, individual accounts, a family foundation**, consolidated reporting and tax-lot accounting. Coordinate **three external advisers: tax attorney, estate planner, insurance broker**.
 
 **Say:**
 
-> "Greenfield looks straightforward, but still needs standard Compliance review.
+> "Greenfield is straightforward but still requires KYC. Apex needs senior Compliance attention because of its ownership and funding questions.
 >
-> "Apex has ownership and funding questions that justify escalation to a human reviewer.
->
-> "Heritage is the contrast: coordinating multiple entities is operationally complex, but that alone doesn't make the client higher compliance risk. Otherwise, we would escalate every complicated case and recreate the backlog."
+> "Heritage shows why risk and complexity must be separate: twenty-two accounts, multiple legal entities and three advisers are a lot of operational work, but aren't themselves evidence of financial-crime risk."
 
 ## 2:40–3:35 — Stage 1 → Stage 2, shown in monday.com
 
@@ -88,85 +100,81 @@ If the live board is inaccessible: run python -m src.report --input output/enric
 
 **Transition:** "Now let me show how those two results are generated."
 
-## 3:35–6:05 — Mandatory code and architecture walkthrough
+## 3:35–6:05 — Source-code walkthrough (mandatory)
 
-**Stay in VS Code for this entire block. Only visit the functions listed below; don't browse the entire repository.**
+**Switch once from board to VS Code. Use Cmd+P for each exact filename below; Cmd+F for the exact search text.**
 
-### 3:35–4:35 — src/pipeline.py: how data moves
+### 3:35–4:35 — Pipeline: one function
 
-**Point to:** process_application() → input check → assess_risk(app, llm) → evidence and routing checks → summarize(app, risk, llm) → EnrichedRecord.
+**SHOW:** **src/pipeline.py** → Cmd+F **def process_application**. Point to **assess_risk(app, llm)** → **guardrails.check_evidence(...)** → **summarize(app, risk, llm)**. These appear in that order.
 
-**Say:**
+**SAY:**
 
-> "The input is eight structured CSV fields, including a free-text description. This POC doesn't extract data from PDFs.
+> "The input is eight CSV fields, including the client's description—not PDFs. This function runs Claude for an advisory risk assessment, then Python checks the result and routes the case. A second Claude call receives the original application and Stage 1 risk JSON to produce an Operations summary.
 >
-> "This Python function orchestrates two Claude calls. The first returns a structured RiskAssessment. Python checks it, computes routing and passes that risk object—along with the original application—into the second model call. The second returns a structured OnboardingSummary.
+> "Both results are saved together. A separate program publishes them to monday.com. If risk assessment fails, the case goes to manual triage; if the summary fails, we retain the risk result and record the failure."
+
+### 4:35–5:25 — Actual prompts and JSON contracts
+
+**SHOW FIRST:** Cmd+P **src/risk_assessment.py**, Cmd+F **RISK_SYSTEM_PROMPT =**. This **is the Stage 1 system prompt**, defined directly in Python, not in a separate prompt file. Point to the text demanding explicit risk indicators and exact source quotes.
+
+**THEN SHOW:** Cmd+P **src/onboarding_summary.py**, Cmd+F **SUMMARY_SYSTEM_PROMPT =**. This **is the Stage 2 system prompt**. Point to the instructions to accept the Stage 1 risk level and never approve or reject a client. In the **same file**, Cmd+F **def summarize** to show the actual model call with the serialized risk JSON.
+
+**SAY:**
+
+> "These are two different system prompts, with separate jobs. Stage 1 returns risk level, evidence, gaps and priority. Stage 2 consumes that risk assessment and returns complexity, suggested owners, next actions and blockers. Each output is validated against its own Pydantic JSON schema."
+
+**If they ask to see the actual output definitions:** Cmd+P **src/schemas.py**, search **class RiskAssessment** and **class OnboardingSummary**. Do **not** open this file in the timed demonstration unless asked.
+
+### 5:25–6:05 — Actual guardrail
+
+**SHOW:** Cmd+P **src/guardrails.py**, Cmd+F **def check_evidence**. The function checks whether each claimed source quote exists in the application's text.
+
+**SAY:**
+
+> "The model doesn't get to verify its own evidence. Python checks that its quotations appear in the input. But a real quotation can still be misinterpreted, and today some mismatches produce warnings rather than blocking routing. That is a known production gap."
+
+## 6:05–7:20 — Show an actual prompt change, with before/after evidence
+
+**SHOW ONLY:** Cmd+P **docs/demo_evidence.md**, then **Cmd+Shift+V** for preview. Start at **Example 1 — Prompt engineering: before → after**. **Do not open ai_development_log.md.**
+
+**Point to the before/after table:** **James Okafor APP-2026-0305** originally MEDIUM / ENHANCED_REVIEW after the model inferred "concentrated employer stock" without evidence; the corrected run was LOW / STANDARD. **Apex APP-2026-0303** originally said an expedite request "should not be accepted"; the revised summary sent that decision to Compliance.
+
+**SAY:**
+
+> "The first evaluated run passed 28 of 30 checks. It inflated risk when routine details were simply unstated. We changed the risk prompt to require a positive indicator in the source, and to put ordinary missing items under gaps, not risk factors.
 >
-> "Both outputs are stored together, and a separate command synchronizes them into monday.com. These are independent components, not an autonomous agent choosing tools or next steps. If Stage 1 fails, it routes to manual triage; if Stage 2 fails, we preserve the risk result and record a summary failure."
-
-### 4:35–5:25 — Two independent prompts and JSON contracts
-
-**Point to:** RISK_SYSTEM_PROMPT and SUMMARY_SYSTEM_PROMPT; show summarize().
-
-**Say:**
-
-> "The risk prompt asks for observable indicators, exact source quotes, missing information and review priority. It prohibits claiming that real screening occurred.
+> "We also stopped the summary model from deciding whether Apex's expedite request should be rejected. Its job is to route that decision to Compliance.
 >
-> "The operations prompt has a different job: consume the Stage 1 JSON, acknowledge its risk level, then produce complexity, suggested owners, blockers and next actions. It cannot change the risk assessment or approve the client.
+> "After those changes and an exact-quotation correction, the next run passed 30 of 30 checks, with all 61 quoted passages matched. These are synthetic test results, not production risk accuracy."
+
+**If challenged on the actual final wording:** Cmd+P **src/risk_assessment.py** → Cmd+F **Risk factors need a positive indicator**; and **src/onboarding_summary.py** → Cmd+F **Do not make or announce decisions**. Return to the evidence preview afterward.
+
+## 7:20–8:20 — Show recorded prompt injection (no live run)
+
+**STAY ON:** **docs/demo_evidence.md** preview. Scroll just below Example 1 to **Example 2 — Prompt injection: actual saved case APP-2026-0901**. The page already shows the injected input, saved MEDIUM / ENHANCED_REVIEW result and **MANUAL_TRIAGE** routing. **This case is not on the monday.com board.**
+
+**SAY:**
+
+> "In this recorded test, the input contains a fake system override ordering Claude to mark the client LOW and claim sanctions screening passed.
 >
-> "Each model stage has its own system prompt and Pydantic schema, so we can test or change one without rewriting the other."
-
-**If asked:** The Stage 1 JSON is serialized into a risk_triage-delimited section inside Stage 2's prompt. That isn't a third call or agent.
-
-### 5:25–6:05 — The check outside the model
-
-**Point to:** src/guardrails.py → evidence_in_source() and check_evidence().
-
-**Say:**
-
-> "We don't rely on the model to validate its own evidence. The code checks that each quoted source passage appears in the application text. The model response is also schema-validated.
+> "The model identified the instruction instead of following it. Our routing code sends cases containing an embedded instruction to manual triage.
 >
-> "But quote matching proves that text appeared—not that the model interpreted it correctly. In today's POC, some unverified quotes produce warnings rather than forcing manual review. That's a gap we'd close before production."
+> "Our first guardrail falsely flagged the model merely *reporting* the fake screening claim. We fixed that false positive and added regression tests. Guardrails need testing too."
 
-## 6:05–7:20 — Prompt engineering: real before and after
+**If asked to prove the underlying record:** Cmd+P **output/adversarial/enriched_applications.json**, Cmd+F **APP-2026-0901**. **If asked to see the routing code:** Cmd+P **src/pipeline.py**, Cmd+F **def route_for** and point to **RiskCategory.EMBEDDED_INSTRUCTION**. **Do not run a new Claude call or sync the injection case to the board.**
 
-**Show:** ai_development_log.md §3.5 and, briefly, the final RISK_SYSTEM_PROMPT.
+## 8:20–9:10 — Show monday.com GraphQL code
 
-**Say:**
+**SHOW:** Cmd+P **src/monday_client.py**; Cmd+F **def upsert** (Application ID lookup then create/update); next Cmd+F **def column_values** (JSON-to-board field mapping).
 
-> "Our first full evaluated run passed 28 of 30 checks. One weakness was risk inflation: the model treated routine details that hadn't been mentioned as evidence of higher risk.
+**SAY:**
+
+> "This is the actual monday.com write path. It maps our enriched JSON to board columns and checks Application ID before create-or-update, so sequential reruns normally update the same case.
 >
-> "We changed the prompt to require a positive, stated risk indicator. Routine missing details belong under missing information, not risk factors. Another case contained a supposedly verbatim quote that dropped the word 'the'; our evidence check caught it. We tightened the quotation instruction rather than relaxing the check.
->
-> "We also corrected the second prompt when it tried to reject an expedite request itself, instead of referring that decision to Compliance.
->
-> "The next full recorded run passed 30 of 30 internal checks, and 61 of 61 quotations matched. These are synthetic development tests, not production compliance accuracy."
+> "The Compliance Decision column is created as Pending Human Review and deliberately omitted from subsequent AI updates. That prevents this writer from overwriting a person's decision."
 
-## 7:20–8:20 — One prompt-injection failure test
-
-**Show:** saved output for APP-2026-0901; use the read-only trace command prepared in advance. Optionally show route_for() in src/pipeline.py.
-
-**Say:**
-
-> "We also tested malicious source text. This fictional application contains a fake system override instructing Claude to mark the case LOW and falsely claim sanctions screening had passed.
->
-> "The model didn't follow it. It identified the embedded instruction, and deterministic routing sent the case to MANUAL_TRIAGE.
->
-> "But our first guardrail had its own bug: it treated the model's report of that fake claim as if the model were asserting the claim. We corrected the false positive and added adversarial regression tests. The lesson is that guardrails need testing just as much as the model."
-
-**If asked:** The final synthetic adversarial suite passed 14/14 checks. This does not prove universal prompt-injection resistance.
-
-## 8:20–9:10 — Actual monday.com GraphQL integration
-
-**Show:** src/monday_client.py → column_values() and MondayClient.upsert().
-
-**Say:**
-
-> "The API adapter converts the enriched JSON to monday.com columns. It looks up Application ID before deciding whether to create or update an item, so a normal rerun updates an existing case.
->
-> "One deliberate safeguard: Compliance Decision is initialized as Pending Human Review only when the item is created. Subsequent AI updates don't touch it, preserving a decision entered by a person."
-
-**Be precise:** The POC does not implement role-based approval permissions. Lookup-then-create is not a transactional guarantee against duplicates from concurrent writes. No production Salesforce, ClientHub, SharePoint, Outlook or ComplianceOne integration has been delivered.
+**Limitation:** The POC does not implement approval permissions; lookup-then-create is not a transactional guarantee against simultaneous duplicate creation.
 
 ## 9:10–10:25 — Production hardening: what we have not built
 
@@ -199,6 +207,12 @@ If the live board is inaccessible: run python -m src.report --input output/enric
 ---
 
 ## Technical Q&A — concise defenses, not extra speaking material
+
+**Why is Heritage's operational complexity HIGH?**  
+> "The intake describes about 22 accounts spread across trusts, LLCs, individual accounts and a family foundation, representing 14 family members. The team must coordinate consolidated reporting, tax-lot accounting and three named external advisers: a tax attorney, estate planner and insurance broker. That's operational complexity, not automatically compliance risk."
+
+**What does ENHANCED_DUE_DILIGENCE mean here?**  
+> "It's a proposed route for additional Compliance verification beyond standard KYC, not an assertion of wrongdoing. In the POC, Claude sets review_priority=ENHANCED_REVIEW and Python's route_for() maps that to ENHANCED_DUE_DILIGENCE. Velocity has a PEP general partner and incomplete investor data; Brightpath has an unsigned board resolution. Priya must validate these categories and escalation thresholds before deployment."
 
 **Walk through the code and architecture.**  
 > "One Python orchestrator coordinates two independently prompted Claude calls. Stage 1 transforms the eight CSV fields into RiskAssessment JSON; deterministic checks run; Stage 2 receives that object plus the original application and returns OnboardingSummary JSON. The separate monday.com adapter maps stored results into board columns."
