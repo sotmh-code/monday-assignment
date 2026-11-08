@@ -247,12 +247,17 @@ The board check needs configured credentials. **Don't run board setup or live sy
 - Compliance Decision is a create-only write field, not a real approval/RBAC implementation.
 - 30/30 and 14/14 are internal synthetic development checks, not real-world model accuracy.
 - Do not run board setup or sync the adversarial test suite during the demo.
-
-
 ---
 
-## Appendix A — Seven guardrails: interview defense only (not part of timed demo)
+## Defense
+1. Why Heritage is HIGH complexity: Its application describes 14 family members, approximately 22 accounts, trusts, LLCs, individual accounts and a family foundation. Crestview also needs consolidated reporting, tax-lot accounting and coordination with three external advisers: a tax attorney, estate planner and insurance broker.
 
+2. What ENHANCED_DUE_DILIGENCE means: It's a recommendation for additional Compliance scrutiny beyond standard KYC—not an accusation or a completed screening. Examples from your results:
+- Velocity Venture Partners (APP-2026-0307): A politically exposed person (PEP) is identified as general partner, with incomplete investor information.
+- Brightpath University Endowment (APP-2026-0306): An unsigned board resolution and a request to proceed before final approval.
+- Mercer-Hastings (APP-2026-0313): A public-company insider with concentrated stock and trading restrictions; these require specialist review, although they don't themselves establish financial-crime risk.
+
+## Appendix A — Seven guardrails: interview defense only (not part of timed demo)
 **Opening answer if Priya or Marcus asks “what prevents unsafe AI output?”**
 
 > "The models are advisory, and Python checks what they return before the result reaches the board. The checks cover structure, evidence, unsupported claims, untrusted instructions, consistency and failure handling; the approval decision remains with a person. These are POC controls, not a substitute for production policy testing or reviewer permissions."
