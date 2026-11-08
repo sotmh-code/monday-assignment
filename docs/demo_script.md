@@ -243,8 +243,8 @@ If the live board is inaccessible: run python -m src.report --input output/enric
 
 > "The models are advisory, and Python checks what they return before the result reaches the board. The checks cover structure, evidence, unsupported claims, untrusted instructions, consistency and failure handling; the approval decision remains with a person. These are POC controls, not a substitute for production policy testing or reviewer permissions."
 
-| # | Failure mode | What the POC actually does | What it **does not** guarantee |
-|---|---|---|---|
+| Guardrail | What the POC actually does | What it **does not** guarantee |
+|---|---|---|
 | **1. Malformed output** | Requests structured JSON, locally validates it against Pydantic schemas, and has bounded retry/repair handling for malformed or truncated responses. | Valid JSON can still contain factually wrong risk judgments. |
 | **2. Invented quotations** | Compares the model's claimed source quotes with the application text (allowing limited text normalization) and records evidence-check results. | Quote presence does **not** show that the risk interpretation is correct. **Unverified quotations can currently yield a warning without forcing MANUAL_TRIAGE**; production should fail closed for material evidence failures. |
 | **3. False screening or approval claims** | Scans generated risk and summary text for certain claims that KYC/sanctions/PEP screening passed or a client was approved. Flagged claims can force MANUAL_TRIAGE. | The lexical scanner can miss reworded claims or falsely flag quotations/reporting; it is not a comprehensive compliance-policy engine. |
