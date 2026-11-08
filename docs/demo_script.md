@@ -233,3 +233,42 @@ If the live board is inaccessible: run python -m src.report --input output/enric
 - Compliance Decision is a create-only write field, not a real approval/RBAC implementation.
 - 30/30 and 14/14 are internal synthetic development checks, not real-world model accuracy.
 - Do not run board setup or sync the adversarial test suite during the demo.
+
+
+---
+
+## Appendix A — Seven guardrails: interview defense only (not part of timed demo)
+
+**Opening answer if Priya or Marcus asks “what prevents unsafe AI output?”**
+
+> "The models are advisory, and Python checks what they return before the result reaches the board. The checks cover structure, evidence, unsupported claims, untrusted instructions, consistency and failure handling; the approval decision remains with a person. These are POC controls, not a substitute for production policy testing or reviewer permissions."
+
+| # | Failure mode | What the POC actually does | What it **does not** guarantee |
+|---|---|---|---|
+| **1. Malformed output** | Requests structured JSON, locally validates it against Pydantic schemas, and has bounded retry/repair handling for malformed or truncated responses. | Valid JSON can still contain factually wrong risk judgments. |
+| **2. Invented quotations** | Compares the model's claimed source quotes with the application text (allowing limited text normalization) and records evidence-check results. | Quote presence does **not** show that the risk interpretation is correct. **Unverified quotations can currently yield a warning without forcing MANUAL_TRIAGE**; production should fail closed for material evidence failures. |
+| **3. False screening or approval claims** | Scans generated risk and summary text for certain claims that KYC/sanctions/PEP screening passed or a client was approved. Flagged claims can force MANUAL_TRIAGE. | The lexical scanner can miss reworded claims or falsely flag quotations/reporting; it is not a comprehensive compliance-policy engine. |
+| **4. Prompt injection** | Delimits untrusted application content, neutralizes forged prompt tags, tests injected records, and routes detected EMBEDDED_INSTRUCTION risk factors to MANUAL_TRIAGE. | This is not universal injection protection; the recorded case is a test, not proof of general resistance. |
+| **5. Risk and priority consistency** | Checks contradictions between risk/priority/severity; uses deterministic routing that favors the more conservative applicable route and does not let Stage 2 change the Stage 1 risk label. | Some inconsistencies are warning-only, and the risk taxonomy and thresholds still require Priya's policy sign-off. |
+| **6. Failure is not LOW risk** | Invalid input is held back from the model. Stage 1 failures become NEEDS_REVIEW/MANUAL_TRIAGE; Stage 2 failures retain the Stage 1 assessment and flag the missing summary. Provider errors are classified rather than silently treated as clean. | Manual intervention is required; this does not mean that a reviewer has actually resolved or approved the case. |
+| **7. Preserve human decisions** | The monday.com writer sets **Compliance Decision = Pending Human Review** only on creation and **omits that field on later AI updates**. | This protects against *this writer* overwriting a board decision. It does **not** implement role-based authorization, approval workflow auditability or prove that only Compliance can edit the field. |
+
+**Concrete evidence to open if challenged:** src/llm_client.py (schema and error handling); src/guardrails.py (quote and claim checks); src/pipeline.py (routing and failure cases); src/prompting.py (untrusted-input handling); src/monday_client.py (create-only Compliance Decision); output/adversarial/evaluation_report_adversarial.md (recorded adversarial results).
+
+**The most important honest limitation:** "If a risk factor's source quote isn't found, the current code flags it, but it doesn't always change the routing. For a production rollout I'd require material evidence mismatches to block automated progression and be reviewed by Compliance."
+
+## Appendix B — Why monday.com instead of another AI dashboard?
+
+**30-second answer for Claire or David**
+
+> "Because identifying risk is only half the problem. Crestview's bottleneck is work moving between teams. A standalone AI dashboard could show an impressive risk score, but it wouldn't tell Operations who owns a missing document, put an escalation in the existing work queue, or make the next action visible alongside the case. monday.com is already used at Crestview, so the better approach is to bring AI findings into that system of work rather than create another destination employees have to monitor."
+
+**What to show on the board if asked:** Apex's **Routing**, **Gaps / Blockers**, **Next Actions**, **Pipeline Status** and **Compliance Decision** columns. Explain how Stage 1 identifies concerns, Stage 2 proposes actionable follow-up, and a person retains the approval decision.
+
+**Technical follow-up for Marcus**
+
+> "The Python output is provider-agnostic structured data. The separate monday.com GraphQL adapter maps that output into board fields, looks up an existing Application ID, and creates or updates the item. We leave authoritative CRM, document, screening and client-account records in Salesforce, SharePoint, ComplianceOne and ClientHub respectively; monday.com coordinates the handoffs rather than replacing those systems."
+
+**Trade-off to acknowledge:** "A board only creates value if teams actually work from it. Today's POC writes suggested owners and actions as board text; it doesn't yet create assignee automation, SLA escalation, full approval permissions or live enterprise-system synchronization. Those are production work, and we'd validate adoption and manual touch-time reduction rather than assuming a populated board solves handoffs."
+
+**If asked why not build a custom web app:** "We could, but it would make Marcus's four-person team own another UI, workflow engine, access-control layer and notification system. Reusing an already adopted operational platform concentrates our custom code on the two model stages and the integrations that are truly necessary."
